@@ -1,1 +1,54 @@
-<h1>Background Information</h1>
+<div class="carousel">
+    <br>
+    <div class="w3-display-container w3-content" style="max-width:1500px;min-width:200px">
+      <img class="w3-image" src="../static/images/infor_background.jpg" alt="info_background" width="1500" height="700" style="opacity: 35%;">
+      <div class="w3-display-topmiddle w3-padding-16 w3-card" style="width:90%; background-color: antiquewhite">
+        <!-- Tabs -->
+        <form class="w3-container w3-white w3-padding-16 myLink" action="/BackgroundCollection" method="post">
+          <h3>Please fill your background information so that we can give you some advices based on your background.</h3>
+            <hr style="height: 2px">
+          <div class="w3-row-padding" style="margin:0 -16px;">
+            <div class="w3-half">
+                <label class="required">Your Age</label>
+                <input class="w3-input w3-border" type="text" placeholder="Your Age" required name="age">
+                <br>
+                <label class="required" style="margin-bottom: 0">Gender</label>
+                <select class="w3-input w3-section w3-border" required name="Your Gender">
+                    <option>Choose your gender...</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                    <option>Others</option>
+                    <option>Not important</option>
+                </select>
+                <label class="required">Your Major</label>
+                <input class="w3-input w3-border" type="text" placeholder="Your Major" required name="major">
+                <br>
+                <label class="required">Your Skills</label>
+                <input class="w3-input w3-border" type="text" placeholder="Your Skills" required name="skills">
+                <br>
+                <label>Your Industry</label>
+                <input class="w3-input w3-border" type="text" placeholder="Your Industry">
+                <br>
+                <label class="required">Your Experience</label>
+                <textarea class="w3-input w3-section w3-border" placeholder="Please describe the problems you encounter in your work" required name="experience"  rows="10" cols="50"></textarea>
+                </div>
+                <div class="w3-half">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <img class="w3-image" src="../static/images/information-img.jpg" alt="info_display" >
+                </div>
+            </div>
+
+            <br>
+          <p><button class="button">Submit</button></p>
+        </form>
+
+      </div>
+</div>
+
+
+
+
+</div>

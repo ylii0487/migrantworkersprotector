@@ -2,7 +2,9 @@ import view
 import database
 
 page_view = view.View()
-
+# db = database.MySQLDatabase()
+#
+# db.tables_setup()
 
 def home_page():
     return page_view("index")

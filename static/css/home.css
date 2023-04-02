@@ -1,8 +1,10 @@
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 17px;
     font-family: "Times New Roman", serif;
+    border-color: #FFFFFF;
+    border-bottom-color: #000000;
 }
 
 .body{
@@ -13,7 +15,7 @@
 
 h1, h2, h3, h4, h5, h6{
     font-family: "Times New Roman", serif;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
 }
 
 /* Add a gray background color and some padding to the footer */
@@ -35,3 +37,27 @@ footer {
       display: none;
     }
 }
+
+.required:after {
+  content:" *";
+  color: red;
+}
+
+.button{
+    background-color: navajowhite;
+    color: black;
+    font-family: "Times New Roman", serif;
+    font-size: 15px;
+    padding: 15px 32px;
+    text-align: center;
+    font-weight: bold;
+    border-radius:15px;
+    margin-top: 10px;
+    border: 0;
+    box-shadow: 0px 0px 2px 2px #E8E8E8;
+}
+
+.button:hover {
+    background-color:#FFFFDD;
+    transition: 0.1s;
+  }
