@@ -15,9 +15,33 @@ def dataVisualization():
     return model.data_page()
 
 
-@app.route('/BackgroundCollection')
+@app.route('/BackgroundCollection', methods=['POST', 'GET'])
 def informationCollect():
-    return model.information_page()
+    if request.method == 'GET':
+        return model.information_page()
+    elif request.method == 'POST':
+        age = request.form['age']
+        gender = request.form['gender']
+        major = request.form['major']
+        skills = request.form['skills']
+        industry = request.form['industry']
+        experience = request.form['experience']
+        return model.fill_information(age, gender, major, skills, industry, experience)
+
+
+@app.route('/Recommendation')
+def recommendation():
+    return model.recommendation_page()
+
+
+@app.route('/Support')
+def support():
+    return model.support_page()
+
+
+@app.route('/About')
+def about():
+    return model.about_page()
 
 
 if __name__ == '__main__':

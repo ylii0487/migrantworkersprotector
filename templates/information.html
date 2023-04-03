@@ -5,15 +5,16 @@
       <div class="w3-display-topmiddle w3-padding-16 w3-card" style="width:90%; background-color: antiquewhite">
         <!-- Tabs -->
         <form class="w3-container w3-white w3-padding-16 myLink" action="/BackgroundCollection" method="post">
-          <h3>Please fill your background information so that we can give you some advices based on your background.</h3>
+            <h3 class="w3-center">Please fill your background information</h3>
+            <h4 class="w3-center">so that we can give you some advices based on your background.</h4>
             <hr style="height: 2px">
           <div class="w3-row-padding" style="margin:0 -16px;">
             <div class="w3-half">
-                <label class="required">Your Age</label>
-                <input class="w3-input w3-border" type="text" placeholder="Your Age" required name="age">
+                <label>Your Age (If you don't think this information is important, you can leave it blank.)</label>
+                <input class="w3-input w3-border" type="text" placeholder="Your Age" name="age" onkeypress="return isNumber(event)" maxlength="3" onchange="handleChange(this)">
                 <br>
-                <label class="required" style="margin-bottom: 0">Gender</label>
-                <select class="w3-input w3-section w3-border" required name="Your Gender">
+                <label style="margin-bottom: 0">Gender (If you don't think this information is important, you can leave it blank.)</label>
+                <select class="w3-input w3-section w3-border" name="gender">
                     <option>Choose your gender...</option>
                     <option>Female</option>
                     <option>Male</option>
@@ -26,8 +27,8 @@
                 <label class="required">Your Skills</label>
                 <input class="w3-input w3-border" type="text" placeholder="Your Skills" required name="skills">
                 <br>
-                <label>Your Industry</label>
-                <input class="w3-input w3-border" type="text" placeholder="Your Industry">
+                <label>Your Industry (If you don't think this information is important, you can leave it blank.)</label>
+                <input class="w3-input w3-border" type="text" placeholder="Your Industry" name="industry">
                 <br>
                 <label class="required">Your Experience</label>
                 <textarea class="w3-input w3-section w3-border" placeholder="Please describe the problems you encounter in your work" required name="experience"  rows="10" cols="50"></textarea>

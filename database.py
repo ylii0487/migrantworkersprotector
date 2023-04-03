@@ -9,55 +9,54 @@ from sshtunnel import SSHTunnelForwarder
 
 class MySQLDatabase():
 
-    def open_ssh_tunnel(verbose=False):
-        """Open an SSH tunnel and connect using a username and password.
-
-        :param verbose: Set to True to show logging
-        :return tunnel: Global SSH tunnel connection
-        """
-
-        sshtunnel.SSH_TIMEOUT = 30.0
-        sshtunnel.TUNNEL_TIMEOUT = 30.0
-
-        ssh_host = '20.5.240.150'
-        ssh_username = 'azureuser'
-        ssh_password = 'fit5120'
-        ssh_pkey_file = "C:/Users/liyon/Desktop/2023S1/FIT5120/migrantworkersprotector-main/migrantworkersprotector/fit5120tp09au_key.pem"
-
-        if verbose:
-            sshtunnel.DEFAULT_LOGLEVEL = logging.DEBUG
-
-        global tunnel
-        tunnel = SSHTunnelForwarder(
-            (ssh_host, 22),
-            ssh_username=ssh_username,
-            ssh_password=ssh_password,
-            ssh_pkey=ssh_pkey_file,
-            remote_bind_address=('10.1.0.4', 3306)
-        )
-
-        tunnel.start()
-
     def __init__(self):
 
-        """Connect to a MySQL server using the SSH tunnel connection
+        self.ssh_host = '20.5.240.150'
+        self.ssh_port = 22
+        self.ssh_username = 'azureuser'
+        self.ssh_password = 'fit5120'
+        self.ssh_pkey_file = "C:/Users/liyon/Desktop/2023S1/FIT5120/migrantworkersprotector-main" \
+                             "/migrantworkersprotector/fit5120tp09au_key.pem "
 
+        self.database_host = '20.5.240.150'
+        self.database_port = 3306
+        self.database_username = 'developer'
+        self.database_name = 'worker'
+        self.database_password = 'fit5120'
+
+        self.server = None
+        self.conn = None
+        self.cursor = None
+
+    def connect(self, verbose=False):
+        """Open an SSH tunnel and connect using a username and password.
+            Connect to a MySQL server using the SSH tunnel connection
+
+            :param verbose: Set to True to show logging
+            :return tunnel: Global SSH tunnel connection
             :return connection: Global MySQL database connection
-            """
+           """
 
-        database_host = '10.1.0.4'
-        database_username = 'developer'
-        database_name = 'worker'
-        database_password = 'fit5120'
+        # if verbose:
+        #     sshtunnel.DEFAULT_LOGLEVEL = logging.DEBUG
+        #
+        # self.server = SSHTunnelForwarder(
+        #     (self.ssh_host, 22),
+        #     ssh_username=self.ssh_username,
+        #     ssh_password=self.ssh_password,
+        #     ssh_pkey=self.ssh_pkey_file,
+        #     remote_bind_address=(self.database_host, self.database_port)
+        # )
+        #
+        # self.server.start()
 
-        self.open_ssh_tunnel()
         try:
-            self.conn = pymysql.connect(host=database_host,
-                                        user=database_username,
-                                        passwd=database_password,
-                                        port=tunnel.local_bind_port,
-                                        db=database_name
-                                        )
+            self.conn = mysql.connector.connect(host=self.database_host,
+                                                port=self.database_port,
+                                                user=self.database_username,
+                                                password=self.database_password,
+                                                database=self.database_name
+                                                )
             self.cursor = self.conn.cursor()
         except mysql.connector.Error as err:
             print(err)
@@ -73,45 +72,42 @@ class MySQLDatabase():
 
         sql_cmd1 = """CREATE TABLE IF NOT EXISTS BackgroundInfo(
                     info_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                    age INT,
+                    age varchar(3),
                     gender varchar(100),
                     major varchar(100) NOT NULL,
                     skills varchar(100) NOT NULL,
-                    industy varchar(100),
-                    experience varchar(500) NOT NULL
+                    industry varchar(100),
+                    experience varchar(700) NOT NULL
                     )"""
 
         self.cursor.execute(sql_cmd1)
         self.commit()
 
-        # self.add_event('Happy Recycling Day', '2023-03-21 15:00:00', 'Melbourne center', 'ylii0487@student.monash.edu', 'Learn learn learn!!')
+    def add_info(self, age, gender, major, skills, industry, experience):
 
-    # def add_event(self, event_topic, event_time, event_place, contact_details, event_content):
+        sql_cmd = """INSERT INTO BackgroundInfo(age, gender, major, skills, industry, experience)
+                        VALUES('{age}', '{gender}','{major}', '{skills}', '{industry}', "{experience}")
+                        """.format(age=age, gender=gender, major=major, skills=skills, industry=industry, experience=experience)
+        self.cursor.execute(sql_cmd)
+
+        self.commit()
+
+        return True
+
     #
-    #     sql_cmd = """INSERT INTO Events(event_topic, event_time, event_place, contact_details, event_content)
-    #                     VALUES('{event_topic}', '{event_time}','{event_place}', '{contact_details}', '{event_content}')
-    #                     """.format(event_topic=event_topic, event_time=event_time, event_place=event_place,
-    #                                contact_details=contact_details, event_content=event_content)
-    #     self.cursor.execute(sql_cmd)
-    #
-    #     self.commit()
-    #
-    #     return True
-    #
-    # def get_allEvents(self):
-    #     sql_cmd = """SELECT *
-    #             FROM Events
-    #             ORDER BY event_time DESC
-    #             """
-    #
-    #     self.cursor.execute(sql_cmd)
-    #
-    #     result = list(self.cursor.fetchall())
-    #     # print(result)
-    #     self.commit()
-    #
-    #     return result
-    #
+    def get_allInfos(self):
+        sql_cmd = """SELECT *
+                FROM BackgroundInfo
+                """
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        # print(result)
+        self.commit()
+
+        return result
+
     # def get_searchEvent(self, search_keywords):
     #     sql_cmd = """SELECT *
     #                     FROM Events
