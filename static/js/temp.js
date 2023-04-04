@@ -7,7 +7,26 @@ function isNumber(evt) {
     return true;
 }
 
-  function handleChange(input) {
+function handleChange(input) {
     if (input.value < 15) input.value = 15;
     if (input.value > 100) input.value = 100;
-  }
+}
+
+
+function isClick(input){
+    let elementClicked = false;
+
+    input.addEventListener('click', function handleClick() {
+        console.log('element was clicked');
+        elementClicked = true;
+    });
+
+    if (elementClicked){
+       input.style.backgroundColor="red";
+    }else input.style.backgroundColor="white";
+
+
+}
+
+
+
