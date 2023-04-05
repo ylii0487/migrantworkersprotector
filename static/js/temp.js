@@ -13,20 +13,6 @@ function handleChange(input) {
 }
 
 
-function isClick(input){
-    let elementClicked = false;
-
-    input.addEventListener('click', function handleClick() {
-        console.log('element was clicked');
-        elementClicked = true;
-    });
-
-    if (elementClicked){
-       input.style.backgroundColor="red";
-    }else input.style.backgroundColor="white";
-
-
-}
 
 
 

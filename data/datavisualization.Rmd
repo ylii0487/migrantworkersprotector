@@ -1,0 +1,26 @@
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(readxl)
+library(gapminder)
+
+```
+
+
+
+```{r}
+industry = read_csv("industry/industry.csv")
+
+states = read_csv("states.csv")
+```
+
+```{r}
+ggplot(data = industry, aes(x = Males, y = Industry, text = paste("Males: ",
+                         "<br>Earning: $", Males,
+                         "<br>Industry: $", Industry))) + 
+      geom_bar(stat = "identity", fill='navajowhite') + theme_classic()
+
+```
+
