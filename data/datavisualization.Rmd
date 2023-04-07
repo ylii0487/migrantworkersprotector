@@ -13,13 +13,13 @@ library(gapminder)
 ```{r}
 industry = read_csv("industry/industry.csv")
 
-states = read_csv("states.csv")
+states = read_csv("states/states.csv")
 ```
 
 ```{r}
-ggplot(data = industry, aes(x = Males, y = Industry, text = paste("Males: ",
+ggplot(data = states, aes(x = Males, y = State, text = paste("Males: ",
                          "<br>Earning: $", Males,
-                         "<br>Industry: $", Industry))) + 
+                         "<br>Industry: $", State))) + 
       geom_bar(stat = "identity", fill='navajowhite') + theme_classic()
 
 ```
