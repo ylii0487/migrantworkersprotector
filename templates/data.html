@@ -31,12 +31,24 @@
         <img class="w3-image" src="/static/images/infor_background.jpg" alt="background" width="1500" height="700" style="opacity: 50%;">
         <div class="w3-display-topmiddle" style="width:90%">
             <div class="navbar w3-center">
+                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'holiday');">Check Holiday</button>
                 <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'industry');">Average Weekly Earnings By Industry</button>
                 <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'state');">Average Weekly Earnings By State</button>
-                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'holiday');">Check Holiday</button>
+
+
             </div>
 
     <!-- Tabs -->
+    <div id="holiday" class="w3-container w3-white w3-padding-16 myLink">
+        <h3 class="w3-center"><b>You can check if your working hours are on holiday.</b></h3>
+        <br>
+        <br>
+      <div class="w3-container w3-center">
+        <iframe height="800px" width="100%" allow="fullscreen" frameborder="no" src="https://ylii0487.shinyapps.io/datavis/"></iframe>
+      </div>
+
+    </div>
+
 
     <div id="industry" class="w3-container w3-white w3-padding-16 myLink">
         <h3 class="w3-center"><b>You can check the average weekly ordinary time earnings, full-time adults by industry, original</b></h3>
@@ -76,15 +88,6 @@
 
     </div>
 
-              <div id="holiday" class="w3-container w3-white w3-padding-16 myLink">
-        <h3 class="w3-center"><b>You can check if your working hours are on holiday.</b></h3>
-        <br>
-        <br>
-      <div class="w3-container w3-center">
-        <iframe height="800px" width="100%" allow="fullscreen" frameborder="no" src="https://ylii0487.shinyapps.io/datavis/"></iframe>
-      </div>
-
-    </div>
 
 
 
