@@ -1,6 +1,6 @@
 mysql-connector-python==8.0.32
-pandas==1.5.3
-SQLAlchemy==2.0.8
+pandas==2.0.0
+SQLAlchemy==2.0.9
 gunicorn==20.1.0
 Flask>=2.2.2
 pymysql==1.0.3

@@ -5,7 +5,7 @@ import security
 page_view = view.View()
 database = database.MySQLDatabase()
 database.connect()
-database.tables_setup()
+# database.tables_setup()
 
 page_security = security.Security()
 

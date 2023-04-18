@@ -1,0 +1,97 @@
+<nav class="navbar navbar-inverse w3-white">
+  <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home/Iteration1">Migrate Worker Protector</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="w3-bar-item w3-button w3-text-black" href="/home/Iteration1">Home</a></li>
+        <li><a class="w3-bar-item w3-button w3-text-black active" href="/StatisticalData/Iteration1">Statistical Data</a></li>
+        <li><a class="w3-bar-item w3-button w3-text-black" href="/BackgroundCollection/Iteration1" >Background Collection</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="carousel">
+    <h1 class="w3-center">Statistical Data</h1>
+
+    <br>
+    <br>
+    <div class="w3-display-container w3-content" style="max-width:1500px">
+        <img class="w3-image" src="/static/images/infor_background.jpg" alt="background" width="1500" height="700" style="opacity: 50%;">
+        <div class="w3-display-topmiddle" style="width:90%">
+            <div class="navbar w3-center">
+                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'holiday');">Check Holiday</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'industry');">Average Weekly Earnings By Industry</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'state');">Average Weekly Earnings By State</button>
+
+
+            </div>
+
+    <!-- Tabs -->
+    <div id="holiday" class="w3-container w3-white w3-padding-16 myLink">
+        <h3 class="w3-center"><b>You can check if your working hours are on holiday.</b></h3>
+        <br>
+        <br>
+      <div class="w3-container w3-center">
+        <iframe height="800px" width="100%" allow="fullscreen" frameborder="no" src="https://ylii0487.shinyapps.io/datavis/"></iframe>
+      </div>
+
+    </div>
+
+
+    <div id="industry" class="w3-container w3-white w3-padding-16 myLink">
+        <h3 class="w3-center"><b>You can check the average weekly ordinary time earnings, full-time adults by industry, original</b></h3>
+      <br>
+      <br>
+      <div class="w3-container w3-center">
+        <iframe height="800px" width="100%" allow="fullscreen" frameborder="no" src="https://flashn.shinyapps.io/barchart_industry/"></iframe>
+
+      </div>
+
+    </div>
+
+    <div id="state" class="w3-container w3-white w3-padding-16 myLink">
+        <h3 class="w3-center"><b>You can check the average weekly ordinary time earnings, full-time adults by state, original</b></h3>
+        <div class="w3-left">
+            <label style="margin-bottom: 0">The type of employee</label>
+            <div class="navbar w3-center">
+                <button class="w3-bar-item button imglink" onclick="show(event, 's_Persons');">Persons</button>
+                <button class="w3-bar-item button imglink" onclick="show(event, 's_Females');">Females</button>
+                <button class="w3-bar-item button imglink" onclick="show(event, 's_Males');">Males</button>
+            </div>
+        </div>
+
+         <div id="s_Persons" class="w3-container w3-center w3-padding-16 myImage">
+            <img class="w3-image"  src="/static/images/State_Persons.png" alt="state" width="1000" height="500" >
+        </div>
+
+
+        <div id="s_Females" class="w3-container w3-center w3-padding-16 myImage">
+
+            <img class="w3-image" src="/static/images/State_Females.png" alt="state" width="1000" height="500" >
+        </div>
+
+        <div id="s_Males" class="w3-container w3-center w3-padding-16 myImage">
+          <img class="w3-image" src="/static/images/State_Males.png" alt="state" width="1000" height="500" >
+        </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>
+</div>
+<script type="text/javascript" src="/static/js/nav.js"></script>
+<script type="text/javascript" src="/static/js/imageShow.js"></script>
+</body>
+</html>
