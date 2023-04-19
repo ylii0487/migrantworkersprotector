@@ -29,19 +29,6 @@ def informationCollect():
         return model.fill_information(age, gender, major, skills, industry, experience)
 
 
-@app.route('/Recommendation')
-def recommendation():
-    return model.recommendation_page()
-
-
-@app.route('/Support')
-def support():
-    return model.support_page()
-
-
-@app.route('/About')
-def about():
-    return model.about_page()
 
 
 if __name__ == '__main__':
