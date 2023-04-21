@@ -1,0 +1,71 @@
+<nav class="navbar navbar-inverse w3-white">
+  <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home">Migrant Worker Protector</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
+        <li><a class="w3-bar-item w3-button w3-text-black" href="/StatisticalData">Statistical Data</a></li>
+        <li><a class="w3-bar-item w3-button w3-text-black" href="/BackgroundCollection" >Background Collection</a></li>
+        <li><a class="w3-bar-item w3-button w3-text-black active" href="/Game" >Scavenger Hunt Game</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<div class="carousel">
+
+    <h3 class="w3-center">These interactive diagrams that will show you some everyday safety hazards</h3>
+    <h4 class="w3-center">Can you find them all?</h4>
+    <br>
+    <br>
+    <div class="w3-dropdown-hover " style="margin-left: 43%">
+          <button class="button" >Select Your Workplace!</button>
+          <div class="w3-dropdown-content w3-bar-block w3-border">
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'farm');">Farm</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'factory');">Factory</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'office');">Office</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'truckyard');">Truck Yard</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'hospital');">Hospital</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'retail');">Retail</button>
+          </div>
+        </div>
+
+    <div id="farm" class="w3-container w3-center w3-padding-16 myImage">
+            <img class="w3-image"  src="/static/images/game/farmer.png" alt="state"  >
+    </div>
+
+    <div id="factory" class="w3-container w3-center w3-padding-16 myImage">
+            <img class="w3-image"  src="/static/images/game/factory.png" alt="state">
+    </div>
+
+    <div id="office" class="w3-container w3-center w3-padding-16 myImage">
+            <img class="w3-image"  src="/static/images/game/office.png" alt="state" >
+    </div>
+
+    <div id="truckyard" class="w3-container w3-center w3-padding-16 myImage">
+            <img class="w3-image"  src="/static/images/game/truckyard.png" alt="state"  >
+    </div>
+
+    <div id="hospital" class="w3-container w3-center w3-padding-16 myImage">
+            <img class="w3-image"  src="/static/images/game/hospital.png" alt="state" >
+    </div>
+
+    <div id="retail" class="w3-container w3-center w3-padding-16 myImage">
+            <img class="w3-image"  src="/static/images/game/retail.png" alt="state">
+    </div>
+
+
+</div>
+
+
+<script type="text/javascript" src="/static/js/imageShow.js"></script>
+</body>
+</html>

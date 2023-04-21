@@ -47,13 +47,7 @@ def fill_information(age, gender, major, skills, industry, experience):
                 return page_view("invalid_add", reason=err_str)
 
 
-def recommendation_page():
-    return page_view("recommendation")
+def game_page():
+    return page_view("game")
 
 
-def support_page():
-    return page_view("support")
-
-
-def about_page():
-    return page_view("about")

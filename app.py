@@ -28,7 +28,9 @@ def informationCollect():
         experience = request.form['experience']
         return model.fill_information(age, gender, major, skills, industry, experience)
 
-
+@app.route('/Game')
+def game():
+    return model.game_page()
 
 
 if __name__ == '__main__':
