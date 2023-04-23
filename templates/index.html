@@ -6,14 +6,38 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home">Migrant Worker Protector</a>
+        <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a class="w3-bar-item w3-button w3-text-black active" href="/home">Home</a></li>
-        <li><a class="w3-bar-item w3-button w3-text-black" href="/StatisticalData">Statistical Data</a></li>
-        <li><a class="w3-bar-item w3-button w3-text-black" href="/BackgroundCollection" >Background Collection</a></li>
-        <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
+      <ul class="nav navbar-nav navbar-right w3-dropdown-hover">
+          <li><button >WAGE INFORMATION <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="#" class="w3-bar-item w3-button">RELATED DATA</a>
+            </div>
+          </li>
+          <li><button>WORKING RIGHTS <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="#" class="w3-bar-item w3-button">Link 1</a>
+              <a href="#" class="w3-bar-item w3-button">Link 2</a>
+              <a href="#" class="w3-bar-item w3-button">Link 3</a>
+            </div>
+          </li>
+          <li><button>RESOURCES CENTER <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="#" class="w3-bar-item w3-button">Link 1</a>
+              <a href="#" class="w3-bar-item w3-button">Link 2</a>
+              <a href="#" class="w3-bar-item w3-button">Link 3</a>
+            </div>
+          </li>
+          <li><button>RECOMMENDATION <i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+              <a href="#" class="w3-bar-item w3-button">Link 1</a>
+              <a href="#" class="w3-bar-item w3-button">Link 2</a>
+              <a href="#" class="w3-bar-item w3-button">Link 3</a>
+            </div>
+          </li>
+
+
       </ul>
 
     </div>
@@ -21,16 +45,24 @@
 </nav>
 
 <div class="carousel">
-    <header class="w3-display-container w3-content w3-wide" style="max-width:1600px; min-width:200px" id="home">
-        <img class="w3-image" src="../static/images/background.jpg" alt="Background" width="1600px" height="900px" style="opacity: 50%">
-        <div class="w3-display-middle w3-padding-large" style="color: black;">
-            <h1 class="w3-xxlage" ><b>MIGRANT WORKERS</b></h1>
-            <h2 class="w3-center"><b>Deserve Labour Rights!</b></h2>
-            <button class="button w3-center" onclick="window.location.href='/StatisticalData';">Statistical Data</button>
+   <!-- <header class="bg-contains w3-display-container" style="max-width:1600px; min-width:200px" id="home">
+        <img class="bg-image" src="../static/images/background.jpg" alt="Background">
+        <div class="w3-display-topleft bg-block">
+            <h1 style="font-size: 38px;" ><b>We help immigrant clients defend their working rights</b></h1>
+            <button class="bg-button w3-center" onclick="window.location.href='/StatisticalData';">GET STARTED</button>
         </div>
     </header>
+    -->
+    <div class="w3-display-container" style="margin-bottom:50px">
+  <img src="../static/images/background.jpg" style="width:100%">
+  <div class="w3-display-left w3-container bg-block w3-hide-small"
+   style="bottom:10%; left: 10%;height: fit-content;">
+      <h5>WELCOME</h5>
+  <h2><b>We help immigrant clients defend their working rights</b></h2>
+      <button class="bg-button w3-center" onclick="window.location.href='/StatisticalData';">GET STARTED</button>
+</div>
+</div>
 
-    <!-- Page content -->
 
     <div class="w3-row-padding w3-center w3-margin-top">
         <div class="w3-half">
@@ -62,3 +94,6 @@
 
 
 </div>
+
+
+
