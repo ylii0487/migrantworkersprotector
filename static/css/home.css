@@ -75,11 +75,15 @@ footer {
     color: black;
 }
 
-.navbutton{
+.nav-button{
     font-family: Georgia, serif;
     font-size: 16px;
     padding: 5px 30px 5px 10px;
     color: #FFFFFF;
+}
+
+.nav-button:hover{
+    color: navajowhite;
 }
 
 
