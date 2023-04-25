@@ -2,20 +2,20 @@
 .navbar {
     margin-bottom: 0;
     font-size: 17px;
-    font-family: "Times New Roman", serif;
+    font-family: Georgia, sans-serif;
     border-color: #FFFFFF;
     border-bottom-color: #000000;
 }
 
 
 .body{
-    font-family: "Times New Roman", Georgia, serif;
+    font-family: Georgia, sans-serif;
 
 }
 
 
 h1, h2, h3, h4, h5, h6{
-    font-family: "Times New Roman", serif;
+    font-family: Georgia, sans-serif;
     letter-spacing: 2px;
 }
 
@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6{
 footer {
     background-color: lightgray;
     padding: 20px;
-    font-family: "Times New Roman", serif;
+    font-family: Georgia, sans-serif;
     position: page;
 }
 
@@ -48,7 +48,7 @@ footer {
 .button{
     background-color: navajowhite;
     color: black;
-    font-family: "Times New Roman", serif;
+    font-family: "Georgia", serif;
     font-size: 15px;
     padding: 15px 32px;
     text-align: center;
@@ -96,7 +96,7 @@ footer {
     align-items: flex-start;
     padding: 60px;
     margin-right: 100px;
-    font-family: Georgia, Times, Times New Roman, serif;
+    font-family: Georgia, serif;
     display: flex;
     width: 44%;
 }
@@ -140,7 +140,7 @@ footer {
   background-color: #fff;
   border-radius: 50px;
   padding: 22px 36px;
-  font-family: Georgia, Times, Times New Roman, serif;
+  font-family: Georgia, serif;
   font-size: 13px;
   line-height: 140%;
   text-decoration: none;

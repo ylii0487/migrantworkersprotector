@@ -26,46 +26,30 @@
     <h4 class="w3-center">Can you find them all?</h4>
     <br>
     <br>
-    <div class="w3-dropdown-hover " style="margin-left: 43%">
+    <div class="w3-dropdown-hover w3-center " style="margin-left: 43%">
           <button class="button" >Select Your Workplace!</button>
           <div class="w3-dropdown-content w3-bar-block w3-border">
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'farm');">Farm</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'factory');">Factory</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'office');">Office</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'truckyard');">Truck Yard</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'hospital');">Hospital</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'retail');">Retail</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'farm');" id="Farm">Farm</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'factory');" id="Factory">Factory</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'office');" id="Office">Office</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'truckyard');" id="Truck Yard">Truck Yard</button>
+              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'hospital');" id="Hospital">Hospital</button>
           </div>
-        </div>
-    
-
-    <div id="farm" class="w3-container w3-center w3-padding-16 myImage">
-            <img class="w3-image"  src="/static/images/game/farmer.png" alt="state">
     </div>
 
-    <div id="factory" class="w3-container w3-center w3-padding-16 myImage">
-            <img class="w3-image"  src="/static/images/game/factory.png" alt="state">
+    <div class="w3-container w3-center w3-padding-16">
+      <div id="tips" class="w3-xlarge"></div>
+        <br>
+        <br>
+      <canvas id="gameCanvas" width="1680px" height="1100px" style="font-family: Georgia,serif; font-size: 15px"></canvas>
     </div>
-
-    <div id="office" class="w3-container w3-center w3-padding-16 myImage">
-            <img class="w3-image"  src="/static/images/game/office.png" alt="state" >
-    </div>
-
-    <div id="truckyard" class="w3-container w3-center w3-padding-16 myImage">
-            <img class="w3-image"  src="/static/images/game/truckyard.png" alt="state">
-    </div>
-
-    <div id="hospital" class="w3-container w3-center w3-padding-16 myImage">
-            <img class="w3-image"  src="/static/images/game/hospital.png" alt="state" >
-    </div>
-
-    <div id="retail" class="w3-container w3-center w3-padding-16 myImage">
-            <img class="w3-image"  src="/static/images/game/retail.png" alt="state">
-    </div>
-
 
 </div>
 
+<script>
+  points = JSON.parse({{ points|tojson }});
+  {#console.debug("points ", points);#}
+</script>
 
 <script type="text/javascript" src="/static/js/imageShow.js"></script>
 </body>

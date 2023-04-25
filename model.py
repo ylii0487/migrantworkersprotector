@@ -1,6 +1,9 @@
 import view
 import database
 import security
+import os
+import pandas as pd
+import json
 
 page_view = view.View()
 database = database.MySQLDatabase()
@@ -48,6 +51,11 @@ def fill_information(age, gender, major, skills, industry, experience):
 
 
 def game_page():
-    return page_view("game")
+    path = os.path.join(os.path.dirname(__file__), "data/game/safty_work.csv")
+    df = pd.read_csv(path)
+    df = df.fillna("")
+    points = json.dumps(df.to_dict("records"))
+
+    return page_view("game", points=points)
 
 
