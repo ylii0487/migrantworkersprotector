@@ -18,7 +18,7 @@ function show(evt, linkName) {
 
   evt.currentTarget.className += " w3-grey";
   document.getElementById("tips").innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Click the image to choose unsafely behavior at <b>" + evt.currentTarget.id + "<b></span>";
-  image_name = "<b>"+evt.currentTarget.id+"</b>";
+  image_name = evt.currentTarget.id;
 
   //canvas render
   let canvas = document.getElementById("gameCanvas");
@@ -121,12 +121,17 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
 
     let answers = getLocationAnswers(currentLocation);
 
-    tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>At "+ image_name + " workplace, you have found " + found.length + "/"  + answers.length + "</span><br> <br>";
+    tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>At <b>"+ image_name + "</b> workplace, you have found <b>" + found.length + "/"  + answers.length + "</b></span><br> <br>";
     tipsContainer.innerHTML = tipsContainer.innerHTML + "<span style='font-size: 20px; font-family: Georgia,sans-serif'> Number "+ answer.id + " shows the safety hazard: <b>"+ answer.answer+"</b></span>";
 
-    if(found.length == answers.length){
-      let winBox = "";
-      win
+
+    if(found.length === answers.length){
+      if (confirm("Congratulations！You Found All Safety Hazards!") === true) {
+        window.location.href = 'Game_Answers'
+
+      } else {
+        confirm.hide();
+    }
     }
   }else{
     tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Wrong Answer, Please Choose Again!</span>"
@@ -135,3 +140,6 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
 
 
 });
+
+
+

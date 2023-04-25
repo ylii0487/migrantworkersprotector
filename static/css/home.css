@@ -27,6 +27,10 @@ footer {
     position: page;
 }
 
+p{
+   font-family: Georgia, sans-serif;
+    font-size: 16px;
+}
 .carousel-inner img {
     width: 100%; /* Set width to 100% */
     margin: auto;
@@ -152,3 +156,13 @@ footer {
   background-color: #1f2022;
 }
 
+
+.answer{
+    font-family: Georgia, serif;
+    font-size: 25px;
+    padding-bottom: 30px;
+    padding-top: 50px;
+    margin-left: 100px;
+    line-height: 2;
+
+}

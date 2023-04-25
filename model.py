@@ -35,9 +35,9 @@ def fill_information(age, gender, major, skills, industry, experience):
     else:
         if page_security.is_xss(age) or page_security.is_sql_injection(age) or page_security.is_xss(
                 major) or page_security.is_sql_injection(major) or page_security.is_xss(
-                skills) or page_security.is_sql_injection(skills) or page_security.is_xss(
-                industry) or page_security.is_sql_injection(industry) or page_security.is_xss(
-                experience) or page_security.is_sql_injection(experience):
+            skills) or page_security.is_sql_injection(skills) or page_security.is_xss(
+            industry) or page_security.is_sql_injection(industry) or page_security.is_xss(
+            experience) or page_security.is_sql_injection(experience):
             err_str = "String formate is incorrect"
             return page_view("invalid_add", reason=err_str)
         else:
@@ -59,3 +59,21 @@ def game_page():
     return page_view("game", points=points)
 
 
+def game_answers_page():
+    return page_view("game_answers")
+
+
+# def game_answers_farm_page():
+#     return page_view("game_answers_Farm")
+#
+#
+# def game_answers_hospital_page():
+#     return page_view("game_answers_Hospital")
+#
+#
+# def game_answers_office_page():
+#     return page_view("game_answers_Office")
+#
+#
+# def game_answers_truck_page():
+#     return page_view("game_answers_Truck")
