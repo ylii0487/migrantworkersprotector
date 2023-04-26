@@ -38,6 +38,12 @@ def game():
 def game_farm_answers():
     return model.game_answers_page()
 
+
+@app.route('/Guideline')
+def game_faq():
+    return model.general_page()
+
+
 #
 # @app.route('/Game_Answers_Factory')
 # def game_factory_answers():

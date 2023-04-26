@@ -113,9 +113,14 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
 
 
   if (answer != null) {
-    ctx.fillStyle = "#FFFF00";
-    ctx.font = "50px Georgia";
-    ctx.fillText(answer.id, answer.x, answer.y);
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font = "20px Georgia";
+    ctx.fillText(answer.answer, answer.x - 20, answer.y-20);
+
+    /*if (confirm(answer.answer) === true) {
+        confirm.hide();
+
+    }*/
 
     found.push(answer);
 
@@ -131,7 +136,7 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
 
       } else {
         confirm.hide();
-    }
+      }
     }
   }else{
     tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Wrong Answer, Please Choose Again!</span>"

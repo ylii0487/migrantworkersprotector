@@ -77,3 +77,5 @@ def game_answers_page():
 #
 # def game_answers_truck_page():
 #     return page_view("game_answers_Truck")
+def general_page():
+    return page_view("guidline")

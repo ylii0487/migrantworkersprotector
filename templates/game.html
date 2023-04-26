@@ -14,6 +14,7 @@
         <li><a class="w3-bar-item w3-button w3-text-black" href="/StatisticalData">Statistical Data</a></li>
         <li><a class="w3-bar-item w3-button w3-text-black" href="/BackgroundCollection" >Background Collection</a></li>
         <li><a class="w3-bar-item w3-button w3-text-black active" href="/Game" >Scavenger Hunt Game</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
       </ul>
 
     </div>
@@ -27,7 +28,7 @@
     <h3 class="w3-center">These interactive diagrams that will show you some everyday safety hazards</h3>
     <h4 class="w3-center">Can you find them all?</h4>
     <br>
-    <div class="w3-dropdown-hover w3-center " style="margin-left: 43%">
+    {#<div class="w3-dropdown-hover w3-center " style="margin-left: 43%">
           <button class="button" >Select Your Workplace!</button>
           <div class="w3-dropdown-content w3-bar-block w3-border">
               <button class="w3-bar-item w3-button imglink" onclick="show(event, 'farm');" id="Farm">Farm</button>
@@ -36,6 +37,16 @@
               <button class="w3-bar-item w3-button imglink" onclick="show(event, 'truckyard');" id="Truck Yard">Truck Yard</button>
               <button class="w3-bar-item w3-button imglink" onclick="show(event, 'hospital');" id="Hospital">Hospital</button>
           </div>
+    </div>#}
+
+    <div class="navbar w3-center">
+        <button class="w3-bar-item button imglink" onclick="show(event, 'farm');" id="Farm">Farm</button>
+        <button class="w3-bar-item button imglink" onclick="show(event, 'factory');" id="Factory">Factory</button>
+        <button class="w3-bar-item button imglink" onclick="show(event, 'office');" id="Office">Office</button>
+        <button class="w3-bar-item button imglink" onclick="show(event, 'truckyard');" id="Truck Yard">Truck Yard</button>
+        <button class="w3-bar-item button imglink" onclick="show(event, 'hospital');" id="Hospital">Hospital</button>
+
+
     </div>
 
     <div class="w3-container w3-center w3-padding-16">
@@ -56,5 +67,4 @@
 </script>
 
 <script type="text/javascript" src="/static/js/imageShow.js"></script>
-</body>
-</html>
+

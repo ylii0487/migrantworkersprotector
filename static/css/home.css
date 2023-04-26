@@ -5,6 +5,8 @@
     font-family: Georgia, sans-serif;
     border-color: #FFFFFF;
     border-bottom-color: #000000;
+    overflow: hidden;
+    background-color: #FFFFFF;
 }
 
 
@@ -166,3 +168,25 @@ p{
     line-height: 2;
 
 }
+
+
+.dropbutton {
+    letter-spacing: 1.3px;
+    border: none;
+    outline: none;
+    color: #0a0a0a;
+    padding: 14px 16px;
+    margin: 0;
+    font-size: 17px;
+    font-family: Georgia, sans-serif;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+
+.dropbutton:hover {
+  background-color: navajowhite;
+}
+
+
+
+
