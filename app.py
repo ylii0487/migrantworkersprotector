@@ -39,10 +39,22 @@ def game_farm_answers():
     return model.game_answers_page()
 
 
-@app.route('/Guideline')
-def game_faq():
-    return model.general_page()
+@app.route('/Guideline', methods=['GET', 'POST'])
+def guideline():
+    if request.method == 'GET':
+        return model.guideline_page()
+    elif request.method == 'POST':
+        search_keywords = request.form['search_keywords']
+        return model.guideline_resultpage(search_keywords)
 
+
+@app.route('/Guideline/<guideline_cat>')
+def guideline_type(guideline_cat):
+    return model.guideline_type_page(guideline_cat)
+
+@app.route('/AboutUs')
+def about():
+    return model.about_page()
 
 #
 # @app.route('/Game_Answers_Factory')

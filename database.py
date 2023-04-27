@@ -49,7 +49,7 @@ class MySQLDatabase():
         # )
         #
         # self.server.start()
-
+        print("Start")
         try:
             self.conn = mysql.connector.connect(host=self.database_host,
                                                 port=self.database_port,
@@ -58,8 +58,9 @@ class MySQLDatabase():
                                                 database=self.database_name
                                                 )
             self.cursor = self.conn.cursor()
+            print("Successful")
         except mysql.connector.Error as err:
-            print(err)
+            print("err")
 
     def commit(self):
         self.conn.commit()
@@ -87,7 +88,8 @@ class MySQLDatabase():
 
         sql_cmd = """INSERT INTO BackgroundInfo(age, gender, major, skills, industry, experience)
                         VALUES('{age}', '{gender}','{major}', '{skills}', '{industry}', "{experience}")
-                        """.format(age=age, gender=gender, major=major, skills=skills, industry=industry, experience=experience)
+                        """.format(age=age, gender=gender, major=major, skills=skills, industry=industry,
+                                   experience=experience)
         self.cursor.execute(sql_cmd)
 
         self.commit()
@@ -108,22 +110,74 @@ class MySQLDatabase():
 
         return result
 
-    # def get_searchEvent(self, search_keywords):
-    #     sql_cmd = """SELECT *
-    #                     FROM Events
-    #                     WHERE event_topic LIKE '%{event_topic}%'
-    #                     ORDER BY event_time DESC
-    #                     """.format(event_topic=search_keywords)
-    #
-    #     self.cursor.execute(sql_cmd)
-    #
-    #     result = list(self.cursor.fetchall())
-    #     # print(result)
-    #     self.commit()
-    #
-    #     return result
-    #
-    #     # function used to get the data in recycle_area, and display in the wastemap page
+    def get_allInfos_WorkingRights(self):
+        sql_cmd = """SELECT *
+                FROM WorkingRights
+                """
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        # print(result)
+        self.commit()
+
+        return result
+
+    def get_allInfos_WorkingRights_Type(self):
+        sql_cmd = """SELECT DISTINCT type
+                FROM WorkingRights
+                """
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        # print(result)
+        self.commit()
+
+        return result
+
+    def get_allInfos_WorkingRights_Title(self):
+        sql_cmd = """SELECT DISTINCT title
+                FROM WorkingRights
+                """
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        # print(result)
+        self.commit()
+
+        return result
+
+    def get_searchGuideline(self, search_keywords):
+        sql_cmd = """SELECT *
+                        FROM WorkingRights
+                        WHERE title LIKE '%{title}%' OR sub_title LIKE '%{sub_title}%' OR text_contents LIKE '%{text_contents}%'
+                        """.format(title=search_keywords, sub_title=search_keywords, text_contents=search_keywords)
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        # print(result)
+        self.commit()
+
+        return result
+
+    def get_searchGuideline_type(self, search_types):
+        sql_cmd = """SELECT *
+                            FROM WorkingRights
+                            WHERE type LIKE '%{type}%'
+                            """.format(type=search_types)
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        # print(result)
+        self.commit()
+
+        return result
+
+    # function used to get the data in recycle_area, and display in the wastemap page
     #
     # def get_allArea(self):
     #     sql_cmd = """

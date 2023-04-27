@@ -12,6 +12,8 @@
 
 .body{
     font-family: Georgia, sans-serif;
+    background-image: url("../images/guideline_bg.jpg");
+
 
 }
 
@@ -31,7 +33,8 @@ footer {
 
 p{
    font-family: Georgia, sans-serif;
-    font-size: 16px;
+    font-size: 20px;
+    letter-spacing: 1.5px;
 }
 .carousel-inner img {
     width: 100%; /* Set width to 100% */
@@ -186,6 +189,30 @@ p{
 .dropbutton:hover {
   background-color: navajowhite;
 }
+
+.text{
+    font-size: 20px;
+    font-family: "Times New Roman", sans-serif;
+    line-height:150%;
+}
+
+.arrow-button{
+    color: #1f2022;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  background-color: #fff;
+  border-radius: 100px;
+  padding: 22px 36px;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  line-height: 140%;
+  text-decoration: none;
+  transition: color .2s, background-color .2s;
+
+}
+
+
+
 
 
 
