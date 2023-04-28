@@ -114,7 +114,7 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
 
   if (answer != null) {
     ctx.fillStyle = "#FFFFFF";
-    ctx.font = "20px Georgia";
+    ctx.font = "50px Georgia";
     ctx.fillText(answer.id, answer.x - 20, answer.y-20);
 
     /*if (confirm(answer.answer) === true) {
