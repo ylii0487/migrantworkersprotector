@@ -6,7 +6,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home">Migrate Worker Protector</a>
+            <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home">Migrant Worker Protector</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
@@ -112,12 +112,12 @@
                                         </div>
                                     </div>
                                     <div id="{{ subtitle }}" class="w3-container w3-hide">
-                                        <div class="text">{{ titles[title][subtitle] }}</div>
+                                        <div class="text">{{ titles[title][subtitle]|safe }}</div>
                                     <br>
                                     </div>
                                     <hr>
                                 {% else %}
-                                    <div class="text">{{ titles[title][subtitle] }}</div>
+                                    <div class="text">{{ titles[title][subtitle]|safe }}</div>
                                     <br>
 
 
