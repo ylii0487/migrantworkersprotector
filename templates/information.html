@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse w3-white w3-xlarge">
+<nav class="navbar navbar-inverse w3-white">
   <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
@@ -6,15 +6,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
+      <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home">Migrate Worker Protector</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
         <li><a class="w3-bar-item w3-button w3-text-black" href="/StatisticalData">Statistical Data</a></li>
         <li><a class="w3-bar-item w3-button w3-text-black active" href="/BackgroundCollection" >Background Collection</a></li>
-          <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
-          <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
       </ul>
 
     </div>
@@ -22,12 +20,8 @@
 </nav>
 
 <div class="carousel">
-
-    <h1 class="w3-center">Background Information Collection for Your Recommendation</h1>
-    <hr>
-
     <div class="w3-display-container w3-content" style="max-width:1500px;min-width:200px">
-      <img class="w3-image" src="../static/images/infor_background.jpg" alt="info_background" width="5001" height="3335" style="opacity: 35%;">
+      <img class="w3-image" src="../static/images/infor_background.jpg" alt="info_background" width="1500" height="700" style="opacity: 35%;">
       <div class="w3-display-topmiddle w3-padding-16 w3-card" style="width:90%; background-color: antiquewhite">
         <!-- Tabs -->
         <form class="w3-container w3-white w3-padding-16 myLink" action="/BackgroundCollection" method="post">
@@ -36,10 +30,10 @@
             <hr style="height: 2px">
           <div class="w3-row-padding" style="margin:0 -16px;">
             <div class="w3-half">
-                <label>Your Age (Optional)</label>
+                <label>Your Age (If you don't think this information is important, you can leave it blank.)</label>
                 <input class="w3-input w3-border" type="text" placeholder="Your Age" name="age" onkeypress="return isNumber(event)" maxlength="3" onchange="handleChange(this)">
                 <br>
-                <label style="margin-bottom: 0">Gender (Optional)</label>
+                <label style="margin-bottom: 0">Gender (If you don't think this information is important, you can leave it blank.)</label>
                 <select class="w3-input w3-section w3-border" name="gender">
                     <option>Select your gender...</option>
                     <option>Female</option>
@@ -67,7 +61,7 @@
                     <option>Not important</option>
                 </select>
                 <br>
-                <label>Your Industry (Optional)</label>
+                <label>Your Industry (If you don't think this information is important, you can leave it blank.)</label>
                 <select class="w3-input w3-section w3-border" required name="industry">
                     <option>Select your industry...</option>
                     <option>Agriculture</option>
