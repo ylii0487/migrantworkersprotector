@@ -8,7 +8,7 @@ import json
 page_view = view.View()
 database = database.MySQLDatabase()
 database.connect()
-database.tables_setup()
+# database.tables_setup()
 
 page_security = security.Security()
 
@@ -86,7 +86,6 @@ def guideline_page():
                 subtitles.update({guideline[5]: guideline[6]})
             titles.update({guideline[4]: subtitles})
 
-
     return page_view("guideline", types=guideline_type, titles=titles)
     # return page_view("guideline")
 
@@ -132,8 +131,8 @@ def guideline_type_page(search_types):
     search_guidelines = database.get_searchGuideline_type(search_types)
     search_titles = {}
     subtitles = {}
-
-    print(search_types)
+    database.close()
+    # print(search_types)
     for guideline in search_guidelines:
 
         if guideline[4] in search_titles:
@@ -151,6 +150,7 @@ def guideline_type_page(search_types):
             search_titles.update({guideline[4]: subtitles})
 
     return page_view("guideline_type", types=search_types, titles=search_titles)
+
 
 def about_page():
     return page_view("about")
