@@ -1,7 +1,7 @@
 //var points = [];
-var currentLocation = "";
-var found = [];
-var image_name = "";
+let currentLocation = "";
+let found = [];
+let image_name = "";
 
 
 function show(evt, linkName) {
@@ -17,8 +17,10 @@ function show(evt, linkName) {
 
 
   evt.currentTarget.className += " w3-grey";
-  document.getElementById("tips").innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Click the image to choose unsafely behavior at <b>" + evt.currentTarget.id + "<b></span>";
+  document.getElementById("tips").innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>You have found <b>0 / 0</b></span><br> <br>";
   image_name = evt.currentTarget.id;
+
+
 
   //canvas render
   let canvas = document.getElementById("gameCanvas");
@@ -26,20 +28,26 @@ function show(evt, linkName) {
   let ctx = canvas.getContext("2d");
 
 
-  ctx.clearRect(100, 0, 1280, 700);
+  ctx.clearRect(0, 0, 1080, 700);
   let image = new Image();
   image.src = "/static/images/game/" + linkName + ".png";
   console.debug("image ", image);
   image.onload = () => {
     console.debug("image load");
-    ctx.drawImage(image, 100, 0, 1280, 700);
+    ctx.drawImage(image, 0, 0, 1080, 700);
 
     //drawAnswers(ctx, currentLocation);
+
   };
+  return image_name;
 }
 
 // Click on the first tablink on load
 document.getElementsByClassName("imglink")[0].click()
+
+function display_answer_image(){
+  window.location.href = 'Game_Answers'
+}
 
 let drawCircle = function(ctx, x, y, color) {
   ctx.fillStyle = color;
@@ -88,6 +96,11 @@ let getAnswer = function(location, x, y) {
 
     if (x < x_max && x > x_min && y > y_min && y < y_max) {
       console.debug("hit ", point);
+      if (isFound(point) == false) {
+        return point;
+      } else {
+        return "Already Found";
+      }
       return point;
     }
   }
@@ -95,6 +108,14 @@ let getAnswer = function(location, x, y) {
   return null;
 };
 
+let isFound = function(current) {
+  for(const point of found) {
+    if (point.x == current.x && point.y == current.y && point.location == current.location) {
+      return true;
+    }
+  }
+  return false;
+};
 
 document.getElementById("gameCanvas").addEventListener("click", function(ev) {
   let canvas = document.getElementById("gameCanvas");
@@ -106,43 +127,45 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
   let x = ev.offsetX;
   let y = ev.offsetY;
   let tipsContainer = document.getElementById("tips");
-  tipsContainer.innerHTML = image_name;
+
   //drawCircle(ctx, x, y, "#FF0000");
 
   let answer = getAnswer(currentLocation, x, y);
 
+  if(answer == "Already Found"){
+    tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Already Found, Please Choose Again!</span>"
+  }else {
+    if (answer != null) {
+      ctx.fillStyle = "#FFFFFF";
+      ctx.font = "20px Georgia";
+      ctx.fillText(answer.answer, answer.x - 20, answer.y - 20);
 
-  if (answer != null) {
-    ctx.fillStyle = "#FFFFFF";
-    ctx.font = "50px Georgia";
-    ctx.fillText(answer.id, answer.x - 20, answer.y-20);
+      /*if (confirm(answer.answer) === true) {
+          confirm.hide();
 
-    /*if (confirm(answer.answer) === true) {
-        confirm.hide();
+      }*/
 
-    }*/
+      found.push(answer);
 
-    found.push(answer);
+      let answers = getLocationAnswers(currentLocation);
 
-    let answers = getLocationAnswers(currentLocation);
-
-    tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>At <b>"+ image_name + "</b> workplace, you have found <b>" + found.length + "/"  + answers.length + "</b></span><br> <br>";
-    tipsContainer.innerHTML = tipsContainer.innerHTML + "<span style='font-size: 20px; font-family: Georgia,sans-serif'> Number "+ answer.id + " shows the safety hazard: <b>"+ answer.answer+"</b></span>";
+      tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>You have found <b>" + found.length + "/" + answers.length + "</b></span><br> <br>";
+      tipsContainer.innerHTML = tipsContainer.innerHTML + "<span style='font-size: 20px; font-family: Georgia,sans-serif'> Number " + answer.id + " shows the safety hazard: <b>" + answer.answer + "</b></span>";
 
 
-    if(found.length === answers.length){
-      if (confirm("Congratulations！You Found All Safety Hazards!") === true) {
-        window.location.href = 'Game_Answers'
+      if (found.length === answers.length) {
+        if (confirm("Congratulations！You Found All Safety Hazards!") === true) {
+          window.location.href = 'Game_Answers'
 
-      } else {
-        confirm.hide();
+        } else {
+          confirm.hide();
+        }
       }
+    } else {
+      tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Wrong Answer, Please Choose Again!</span>"
     }
-  }else{
-    tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Wrong Answer, Please Choose Again!</span>"
+
   }
-
-
 
 });
 

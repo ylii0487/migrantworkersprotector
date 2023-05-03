@@ -24,16 +24,6 @@
 
 <div class="carousel">
 
-{#    <header class="bgimg_guideline w3-display-container w3-grayscale-min" style="margin-top:3%">#}
-{##}
-{#      <div class="w3-display-middle w3-left" style = "align-items: center; padding-left: 5%">#}
-{#          <p class="name fw-bolder" style="font-size:50px;color: black; font-family: Georgia,sans-serif">Working Rights Guideline</p >#}
-{#          <br>#}
-{#          <p class="fw-bolder">We<span>&#39;</span>ve pulled together some basics to help you get understood</p >#}
-{#      </div>#}
-{##}
-{#    </header>#}
-
     <h1 class="w3-center">Working Rights Guideline</h1>
     <h2 class="w3-center">We<span>&#39;</span>ve pulled together some basics to help you get understood</h2>
     <hr>
@@ -49,19 +39,6 @@
                         <h3 class="w3-center">Guideline Category</h3>
                         <hr>
                         <br>
-
-{#                    <form action="/Guideline" method="post">#}
-{#                        {% for type in types %}#}
-{#                            <button type="submit" class="arrow-button " name="search_type" style="width: 100%">{{ type[0] }}</button>#}
-{#                            <hr>#}
-{#                        {% endfor %}#}
-{#                    </form>#}
-
-
-
-
-
-{##}
 
                         {% for type in types %}
                             <h5><i class="w3-margin-right w3-text-theme"></i><a href="/Guideline/{{ type[0] }}">{{ type[0] }}</a></h5>
@@ -163,11 +140,6 @@
         }
 
 
-        function convertHtml(convert_string){
-            let parser = new DOMParser();
-            // convert html string into DOM
-            let document = parser.parseFromString(convert_string, "text/html");
-            console.log(document.getElementById('convert').innerHTML);
-        }
+
     </script>
 </div>

@@ -5,6 +5,8 @@ import pymysql
 import logging
 import sshtunnel
 from sshtunnel import SSHTunnelForwarder
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import func
 
 
 class MySQLDatabase():
@@ -83,6 +85,7 @@ class MySQLDatabase():
 
         self.cursor.execute(sql_cmd1)
         self.commit()
+        # self.close()
 
     def add_info(self, age, gender, major, skills, industry, experience):
 
@@ -93,6 +96,7 @@ class MySQLDatabase():
         self.cursor.execute(sql_cmd)
 
         self.commit()
+        # self.close()
 
         return True
 
@@ -107,6 +111,7 @@ class MySQLDatabase():
         result = list(self.cursor.fetchall())
         # print(result)
         self.commit()
+        # self.close()
 
         return result
 
@@ -120,6 +125,7 @@ class MySQLDatabase():
         result = list(self.cursor.fetchall())
         # print(result)
         self.commit()
+        # self.close()
 
         return result
 
@@ -133,6 +139,7 @@ class MySQLDatabase():
         result = list(self.cursor.fetchall())
         # print(result)
         self.commit()
+        # self.close()
 
         return result
 
@@ -146,7 +153,7 @@ class MySQLDatabase():
         result = list(self.cursor.fetchall())
         # print(result)
         self.commit()
-
+        # self.close()
         return result
 
     def get_searchGuideline(self, search_keywords):
@@ -160,7 +167,7 @@ class MySQLDatabase():
         result = list(self.cursor.fetchall())
         # print(result)
         self.commit()
-
+        # self.close()
         return result
 
     def get_searchGuideline_type(self, search_types):
@@ -174,7 +181,7 @@ class MySQLDatabase():
         result = list(self.cursor.fetchall())
         # print(result)
         self.commit()
-
+        # self.close()
         return result
 
     # function used to get the data in recycle_area, and display in the wastemap page
