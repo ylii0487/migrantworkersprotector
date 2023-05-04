@@ -133,12 +133,35 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
   let answer = getAnswer(currentLocation, x, y);
 
   if(answer == "Already Found"){
-    tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Already Found, Please Choose Again!</span>"
+    tipsContainer.innerHTML = "<h2 style='font-size: 20px; font-family: Georgia,sans-serif'>Already Found, Please Choose Again!</h2>"
   }else {
     if (answer != null) {
+
+
+      const text = answer.answer;
+
+      const x = answer.x;
+      const y = answer.y;
+      const font = "20px Georgia";
+      const text_width = ctx.measureText(text).width;
+
+      // Load the font before measuring the text width
+
+      ctx.globalAlpha = 0.6;
       ctx.fillStyle = "#FFFFFF";
-      ctx.font = "20px Georgia";
-      ctx.fillText(answer.answer, answer.x - 20, answer.y - 20);
+      if((y-30+text_width) > 1080){
+       ctx.fillRect(x-50, y-30, text_width, 40);
+      }
+      else {
+        ctx.fillRect(x, y-30, text_width, 40);
+      }
+
+
+      ctx.globalAlpha = 1;
+      ctx.font = font;
+      ctx.fillStyle = "#000000";
+      ctx.fillText(text, x, y);
+
 
       /*if (confirm(answer.answer) === true) {
           confirm.hide();
@@ -150,8 +173,8 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
       let answers = getLocationAnswers(currentLocation);
 
       tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>You have found <b>" + found.length + "/" + answers.length + "</b></span><br> <br>";
-      tipsContainer.innerHTML = tipsContainer.innerHTML + "<span style='font-size: 20px; font-family: Georgia,sans-serif'> Number " + answer.id + " shows the safety hazard: <b>" + answer.answer + "</b></span>";
-
+      // tipsContainer.innerHTML = tipsContainer.innerHTML + "<span style='font-size: 20px; font-family: Georgia,sans-serif'> Number " + answer.id + " shows the safety hazard: <b>" + answer.answer + "</b></span>";
+      //
 
       if (found.length === answers.length) {
         if (confirm("Congratulations！You Found All Safety Hazards!") === true) {
@@ -162,7 +185,7 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
         }
       }
     } else {
-      tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>Wrong Answer, Please Choose Again!</span>"
+      tipsContainer.innerHTML = "<h2 style='font-size: 20px; font-family: Georgia,sans-serif'>Wrong Answer, Please Choose Again!</h2>"
     }
 
   }
