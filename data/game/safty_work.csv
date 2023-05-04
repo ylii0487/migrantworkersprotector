@@ -1,47 +1,47 @@
-id,location,x,y,width,height,answer,
-1,factory,389,380,110,70,rubbish on ground,
-2,factory,426,270,126,113,unsecured chemicals,
-3,factory,764,519,500,220,a machine with guarding that's been lifted,
-4,factory,340,534,140,206,water on floor, which is a trip hazard
-5,factory,1002,128,144,208,pallets of material stacked unevenly against a wall,
-6,factory,725,217,62,110,a worker walking in front of a forklift,
-7,factory,816,159,110,142,pallets of goods blocking a fire exit,
-8,factory,561,266,152,126,a forklift being stacked to high and the driver being unable to see,
-1,farm,768,276,111,65,chemicals in a shed - unsafe chemical storage,
-2,farm,128,280,188,171,an unguarded auger,
-3,farm,323,274,253,100,an over-crowded sheep pen,
-4,farm,955,275,133,152,a farmer standing on an unstable platform to reach on top of a shed roof,
-5,farm,207,42,82,73,a person working at height at the top of a silo without fall protection - potentially falling from heights,
-6,farm,338,191,97,83,a person and child riding a quad bike without a helmet or roll over protection,
-7,farm,658,491,253,224,children playing near water,
-8,farm,859,388,189,117,a farmer lifting a hay bail that's too heavy,
-9,farm,560,243,126,109,a person smoking while refueling a truck,
-10,farm,227,509,102,188,a person cutting down a tree while standing on a stack of tires to get height,
-11,farm,449,388,161,88,a person mounting a horse by using a fence,
-12,farm,912,476,138,82,Bull not segregated,
-13,farm,417,617,350,121,Messy area with hazard for workers/children,
-1,hospital,290,473,117,201,workers lifting a patient incorrectly,
-2,hospital,955,335,130,95,rubbish left on the floor,
-3,hospital,678,180,127,58,pool of water on the floor - slip hazard,
-4,hospital,455,227,98,159,workers approaching an aggressive person,
-5,hospital,726,233,32,34,needles and medicine laying around,
-6,hospital,837,185,100,150,nurse not using gloves,
-7,hospital,782,340,102,83,cord on the floor,
-8,hospital,226,232,170,224,bed blocking a fire exit,
-1,office,249,622,150,73,uneven floor / carpeting - trip hazard,
-2,office,106,609,108,79,files one floor - trip hazard,
-3,office,424,184,82,121,worker sitting at desks - repetitive movements,
-4,office,426,389,145,89,boxes and files stacked too high,
-5,office,602,250,142,156,overloaded trolley,
-6,office,122,56,114,70,printer placed on the floor instead of on a table,
-7,office,650,575,139,68,cord on the floor,
-8,office,868,278,182,120,unsafe layout of desk,
-9,office,108,307,117,103,worker rocking on chair,
-10,office,364,292,114,102,workers carrying too much at once,
-11,office,748,159,168,132,boxes blocking the fire exit,
-1,truckyard,475,168,403,174,truck reversing while a worker is standing behind,
-2,truckyard,852,429,192,214,forklift stacked too high and driver cannot see.,
-3,truckyard,279,272,61,97,person walking in front of a truck while talking on his mobile,
-4,truckyard,489,569,235,262,workers loading dangerous chemicals without PPE,
-5,truckyard,929,99,117,150,working on a mezzanine floor with no fall protection,
-6,truckyard,729,126,68,92,unsecured gas cylinders,
+id,location,x,y,width,height,answer
+1,factory,389,380,110,70,Rubbish on ground
+2,factory,426,270,126,113,Unsecured chemicals
+3,factory,764,519,500,220,Machine guarding lifted
+4,factory,340,534,140,206,Water on floor
+5,factory,1002,128,144,208,Stacked material unevenly
+6,factory,725,217,62,110,Person walking in front of forklift
+7,factory,816,159,110,142,Pallets blocking fire exit
+8,factory,561,266,152,126,Forklift stacked too high and the driver can't see
+1,farm,768,276,111,65,No locked chemical storage
+2,farm,128,280,188,171,Unguarded auger
+3,farm,323,274,253,100,Working in overcrowded sheep pen
+4,farm,955,275,133,152,Farmer standing on unstable platform
+5,farm,207,42,82,73,Fall from heights
+6,farm,338,191,97,83,Child on back of quad bike not helmet or rollover protection
+7,farm,658,491,253,224,Children playing unsupervised near water
+8,farm,859,388,189,117,Farmer lifting hat bale
+9,farm,560,243,126,109,Somking while filling the truck
+10,farm,227,509,102,188,Cutting tree down unsafety
+11,farm,449,388,161,88,No helmet and small rider on large horse
+12,farm,912,476,138,82,Bull not segregated
+13,farm,417,617,350,121,Messy area with hazard for workers/children
+1,hospital,290,473,117,201,Lifting patients incorrectly
+2,hospital,955,335,130,95,Rubbish on the floor
+3,hospital,678,180,127,58,Pool of water on floor
+4,hospital,455,227,98,159,Aggressive person
+5,hospital,726,233,32,34,Needles and medicine laying around
+6,hospital,837,185,100,150,Nurse not using gloves
+7,hospital,782,340,102,83,Cord on the floor
+8,hospital,226,232,170,224,Bed blocking a fire exit
+1,office,249,622,150,73,"Uneven floor,carpeting"
+2,office,106,609,108,79,Files one floor
+3,office,424,184,82,121,Sitting at desks (repetitive movements)
+4,office,426,389,145,89,Boxes and files stacked too high
+5,office,602,250,142,156,Overloaded trolley to move files
+6,office,122,56,114,70,Printer placed on the floor instead of on a table
+7,office,650,575,139,68,Cord on the floor
+8,office,868,278,182,120,Unsafe layout of desk
+9,office,108,307,117,103,Rocking on chair
+10,office,364,292,114,102,Person carrying too much at once
+11,office,748,159,168,132,Boxes blocking the fire exit
+1,truckyard,475,168,403,174,Truck reversing while a worker is standing behind
+2,truckyard,852,429,192,214,Forklift stacked too high and driver cannot see.
+3,truckyard,279,272,61,97,Person walking in front of a truck while talking on his mobile
+4,truckyard,489,569,235,262,Loading dangerous chemicals without PPE
+5,truckyard,929,99,117,150,Working on a mezzanine floor with no fall protection
+6,truckyard,729,126,68,92,Unsecured gas cylinders
