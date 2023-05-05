@@ -133,50 +133,35 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
   let answer = getAnswer(currentLocation, x, y);
 
   if(answer == "Already Found"){
-    tipsContainer.innerHTML = "<h2 style='font-size: 20px; font-family: Georgia,sans-serif'>Already Found, Please Choose Again!</h2>"
+    tipsContainer.innerHTML = "<h2 style='font-size: 20px; font-family: Georgia,sans-serif; color: #9C1A1C'>Already Found, Please Choose Again!</h2>"
   }else {
     if (answer != null) {
-
-
       const text = answer.answer;
 
       const x = answer.x;
       const y = answer.y;
       const font = "20px Georgia";
+      ctx.font = font;
+
       const text_width = ctx.measureText(text).width;
-
-      // Load the font before measuring the text width
-
-      ctx.globalAlpha = 0.6;
+      ctx.globalAlpha = 0.5;
       ctx.fillStyle = "#FFFFFF";
-      if((y-30+text_width) > 1080){
-       ctx.fillRect(x-50, y-30, text_width, 40);
-      }
-      else {
-        ctx.fillRect(x, y-30, text_width, 40);
-      }
-
+      ctx.fillRect(x-100, y-30, text_width, 40);
 
       ctx.globalAlpha = 1;
-      ctx.font = font;
       ctx.fillStyle = "#000000";
-      ctx.fillText(text, x, y);
+      ctx.fillText(text, x-100, y);
 
 
-      /*if (confirm(answer.answer) === true) {
-          confirm.hide();
-
-      }*/
 
       found.push(answer);
 
       let answers = getLocationAnswers(currentLocation);
 
       tipsContainer.innerHTML = "<span style='font-size: 20px; font-family: Georgia,sans-serif'>You have found <b>" + found.length + "/" + answers.length + "</b></span><br> <br>";
-      // tipsContainer.innerHTML = tipsContainer.innerHTML + "<span style='font-size: 20px; font-family: Georgia,sans-serif'> Number " + answer.id + " shows the safety hazard: <b>" + answer.answer + "</b></span>";
-      //
 
       if (found.length === answers.length) {
+
         if (confirm("Congratulations！You Found All Safety Hazards!") === true) {
           window.location.href = 'Game_Answers'
 
@@ -184,9 +169,11 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
           confirm.hide();
         }
       }
+
     } else {
-      tipsContainer.innerHTML = "<h2 style='font-size: 20px; font-family: Georgia,sans-serif'>Wrong Answer, Please Choose Again!</h2>"
+      tipsContainer.innerHTML = "<h2 style='font-size: 20px; font-family: Georgia,sans-serif;color: #9C1A1C'>Wrong Answer, Please Choose Again!</h2>"
     }
+
 
   }
 
