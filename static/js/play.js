@@ -144,7 +144,7 @@ document.getElementById("gameCanvas").addEventListener("click", function(ev) {
       ctx.font = font;
 
       const text_width = ctx.measureText(text).width;
-      ctx.globalAlpha = 0.5;
+      ctx.globalAlpha = 0.6;
       ctx.fillStyle = "#FFFFFF";
       ctx.fillRect(x-100, y-30, text_width, 40);
 
