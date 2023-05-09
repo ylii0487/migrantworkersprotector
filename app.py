@@ -1,7 +1,16 @@
-from flask import Flask, request
+from flask import Flask, request, Response
 import model
 
 app = Flask(__name__, template_folder="templates", static_folder='static')
+
+
+@app.before_request
+def before_request():
+    auth = request.authorization
+    if not auth or not (auth.username == 'FIT5120' and auth.password == 'ICECDG'):
+        return Response('Could not verify your access level for that URL.\n'
+                        'You have to login with proper credentials', 401,
+                        {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 
 @app.route('/')
@@ -13,6 +22,15 @@ def index():
 @app.route('/StatisticalData')
 def dataVisualization():
     return model.data_page()
+
+
+@app.route('/SalaryCalculator', methods=['GET', 'POST'])
+def salary_calculator():
+    if request.method == 'GET':
+        return model.salary_calculator_page()
+    elif request.method == 'POST':
+        search_keywords = request.form['search_keywords']
+        return model.salary_calculator_result_page(search_keywords)
 
 
 @app.route('/BackgroundCollection', methods=['POST', 'GET'])
@@ -52,9 +70,11 @@ def guideline():
 def guideline_type(guideline_cat):
     return model.guideline_type_page(guideline_cat)
 
+
 @app.route('/AboutUs')
 def about():
     return model.about_page()
+
 
 #
 # @app.route('/Game_Answers_Factory')

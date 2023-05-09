@@ -21,6 +21,12 @@ def data_page():
     return page_view("data")
 
 
+def salary_calculator_page():
+    return page_view("calculator")
+
+def salary_calculator_result_page(search_keywords):
+    return page_view("calculator")
+
 def information_page():
     return page_view("information")
 
@@ -131,7 +137,6 @@ def guideline_type_page(search_types):
     search_guidelines = database.get_searchGuideline_type(search_types)
     search_titles = {}
     subtitles = {}
-    database.close()
     # print(search_types)
     for guideline in search_guidelines:
 
@@ -148,6 +153,7 @@ def guideline_type_page(search_types):
             else:
                 subtitles.update({guideline[5]: guideline[6]})
             search_titles.update({guideline[4]: subtitles})
+
 
     return page_view("guideline_type", types=search_types, titles=search_titles)
 

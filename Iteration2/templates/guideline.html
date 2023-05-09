@@ -1,0 +1,145 @@
+<nav class="navbar navbar-inverse w3-white w3-xlarge">
+    <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
+                <li><a class="w3-bar-item w3-button w3-text-black " href="/StatisticalData">Statistical Data</a></li>
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/BackgroundCollection">Background
+                    Collection</a></li>
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/Game">Scavenger Hunt Game</a></li>
+                <li><a class="w3-bar-item w3-button w3-text-black active" href="/Guideline">Guideline</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="carousel">
+
+    <h1 class="w3-center">Working Rights Guideline</h1>
+    <h2 class="w3-center">We<span>&#39;</span>ve pulled together some basics to help you get understood</h2>
+    <hr>
+    <!-- Page Container -->
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+        <!-- The Grid -->
+        <div class="w3-row">
+            <!-- Left Column -->
+            <div class="w3-col m3">
+                <!-- Profile -->
+                <div class="w3-card w3-round w3-white">
+                    <div class="w3-container">
+                        <h3 class="w3-center">Guideline Category</h3>
+                        <hr>
+                        <br>
+
+                        {% for type in types %}
+                            <h5><i class="w3-margin-right w3-text-theme"></i><a href="/Guideline/{{ type[0] }}">{{ type[0] }}</a></h5>
+                            <hr>
+                        {% endfor %}
+
+
+
+                    </div>
+                </div>
+                <br>
+
+
+                <!-- End Left Column -->
+            </div>
+
+            <!-- Right Column -->
+            <div class="w3-col m9">
+
+                <div class="w3-row-padding">
+                    <div class="w3-col m12">
+                        <div class="w3-card w3-round w3-white">
+                            <div class="w3-container w3-padding w3-xlarge">
+                                <h4 class="w3-opacity">Search your keywords</h4>
+
+                                <form action="/Guideline" method="post">
+                                    <input type="text" required name="search_keywords" class="w3-border w3-padding">
+                                    <button type="submit" class="button"><i class="fa fa-search"></i> Search</button>
+                                    <button type="submit" class="button" onclick="window.location.href='/Guideline';">Go Back</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                {% for title in titles %}
+                    <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                        <div class="w3-row-padding">
+                            <div class="w3-col m9">
+                                <h4 style="font-size: 20px">{{ title }}</h4>
+                                <hr class="w3-clear">
+                            </div>
+                            <div class="w3-col m3 w3-center">
+                                <button type="button" class="arrow-button w3-margin-bottom"
+                                        onclick="myFunction('{{ title }}')" ><i class='fa fa-angle-down'
+                                                                               style='font-size:40px;color:black'></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="{{ title }}" class="w3-container w3-hide">
+                            {% for subtitle in titles[title] %}
+                                {% if subtitle is not none %}
+                                    <div class="w3-row-padding">
+                                        <div class="w3-col m9">
+                                            <h5 style="font-size: 20px; color: #8979ec">{{ subtitle }}<br></h5>
+                                        </div>
+                                        <div class="w3-col m3 w3-center">
+                                            <button type="button" class="arrow-button w3-margin-bottom"
+                                                    onclick="myFunction('{{ subtitle }}')"><i class='fa fa-angle-down'
+                                                                                              style='font-size:20px;color:black'></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div id="{{ subtitle }}" class="w3-container w3-hide">
+                                        <div class="text" id="convert" >{{ titles[title][subtitle]|safe }}</div>
+                                    <br>
+                                    </div>
+                                    <hr>
+                                {% else %}
+                                    <div class="text" id="convert" >{{ titles[title][subtitle]|safe }}</div>
+
+                                <br>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+
+            </div>
+
+
+            <!-- End Grid -->
+        </div>
+
+    </div>
+
+    <script>
+        function myFunction(id) {
+            let x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+
+
+
+    </script>
+</div>
