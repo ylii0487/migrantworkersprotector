@@ -86,9 +86,10 @@
                                 <h4 class="w3-opacity">Search your keywords</h4>
 
                                 <form action="/Guideline" method="post">
-                                    <input id="searchBox" type="text" required name="search_keywords" class="w3-border w3-padding">
+                                    <input id="searchBox" type="text" required name="search_keywords" class="w3-border w3-padding" placeholder="{{ keywords }}">
                                     <button type="submit" class="function-button" id="searchButton"><i class="fa fa-search"></i> Search</button>
                                 </form>
+                                <button id="backButton" class="function-button" onclick="window.location.href='/Guideline';">Go Back</button>
                             </div>
                         </div>
                     </div>
@@ -152,12 +153,14 @@
     <script>
         function myFunction(id) {
             let x = document.getElementById(id);
-            if (x.className.indexOf("w3-show") === -1) {
+            if (x.className.indexOf("w3-show") == -1) {
                 x.className += " w3-show";
             } else {
                 x.className = x.className.replace(" w3-show", "");
             }
         }
+
+
 
     </script>
 </div>

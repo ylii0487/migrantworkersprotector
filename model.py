@@ -130,7 +130,7 @@ def guideline_resultpage(search_keywords):
                         subtitles.update({guideline[5]: guideline[6]})
                     search_titles.update({guideline[4]: subtitles})
 
-            return page_view("guideline", types=search_guideline_type, titles=search_titles)
+            return page_view("guideline_result", types=search_guideline_type, titles=search_titles, keywords=search_keywords)
 
 
 def guideline_type_page(search_types):
