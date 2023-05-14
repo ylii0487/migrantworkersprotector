@@ -10,30 +10,20 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                          <li><a class="w3-bar-item nav-button w3-text-black" href="/home">Home</a></li>
+                          <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
           <li>
               <div class="dropdown w3-mobile w3-bar-item">
                   <button class="dropdown-button active">Wage Information <i class="fa fa-caret-down"></i></button>
                   <div class="dropdown-content">
-                      <a href="/SalaryCalculator" class="w3-bar-item nav-button w3-mobile active">Salary Calculator</a>
-                      <a href="/StatisticalData" class="w3-bar-item nav-button w3-mobile">Explore Statistic</a>
+                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile active">Salary Calculator</a>
+                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
 
                   </div>
               </div>
           </li>
-
-          <li>
-              <div class="dropdown w3-mobile w3-bar-item">
-                  <button class="dropdown-button">Ask For Help <i class="fa fa-caret-down"></i></button>
-                  <div class="dropdown-content">
-                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">General Answer</a>
-                      <a href="/BackgroundCollection" class="w3-bar-item w3-button w3-mobile">Get Relevant Answers</a>
-                  </div>
-              </div>
-          </li>
-
-          <li><a class="w3-bar-item nav-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
-          <li><a class="w3-bar-item nav-button w3-text-black" href="/Guideline" >Guideline</a></li>
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp" >Ask For Help</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
 
 
             </ul>
@@ -45,50 +35,116 @@
 <div class="carousel">
 
     <div class="w3-display-container w3-content" style="max-width:1500px">
-  <img class="w3-image" src="../static/images/safety_bg.jpg" alt="background" width="5184" height="3456" style="opacity: 70%">
-  <div class="w3-display-middle" style="width:65%">
-      <h1 class="w3-center" style="color: #FFFFFF">Salary Calculator</h1>
-    <h3 class="w3-center " style="color: #FFFFFF">You can check your salary be paid fairly or not.</h3>
-    <!-- Tabs -->
-    <div class="w3-container w3-white w3-padding-16">
-      <h3>Please enter your answer here</h3>
-       <hr>
-        <label>Your Industry</label>
-                <select class="w3-input w3-section w3-border" required name="industry">
-                    <option>Select your industry...</option>
-                    <option>Agriculture</option>
-                    <option>Air, rail and water transport</option>
-                    <option>Arts and recreational services</option>
-                    <option>Building, construction and on-site trades</option>
-                    <option>Business, Finance and Employment Services</option>
-                    <option>Clerical</option>
-                    <option>Contract Cleaning</option>
-                    <option>Education, training and children's services</option>
-                    <option>Food manufacturing and processing</option>
-                    <option>Hair and Beauty</option>
-                    <option>Health Support Services</option>
-                    <option>Horticulture</option>
-                    <option>Hospitality</option>
-                    <option>Manufacturing</option>
-                    <option>Mining</option>
-                    <option>Personal and household services</option>
-                    <option>Power, water and gas</option>
-                    <option>Print, Media and Telecommunications</option>
-                    <option>Professional Services</option>
-                    <option>Real Estate</option>
-                    <option>Retail</option>
-                    <option>Retail Trade</option>
-                    <option>Road Transport</option>
-                    <option>Security</option>
-                    <option>Security and public services</option>
-                    <option>Social, community, disability and home care services</option>
-                    <option>Storage services and wholesale</option>
-                    <option>Other</option>
+        <img class="w3-image" src="../static/images/safety_bg.jpg" alt="background" width="5184" height="3456"
+             style="opacity: 70%">
+        <div class="w3-display-middle" style="width:65%">
+            <h1 class="w3-center" style="color: #FFFFFF">Salary Calculator</h1>
+            <h3 class="w3-center " style="color: #FFFFFF">You can check your salary be paid fairly or not.</h3>
+            <!-- Tabs -->
+            <div class="w3-container w3-white w3-padding-16">
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                    <div class="w3-half">
+                        <h3>Please enter your answer here</h3>
+                        <hr>
+                        <div class="w3-content">
+                            <div class="mySlides">
+                                <label class="required">Your Industry</label>
+                                <select class="w3-input w3-section w3-border" required name="industry">
+                                    <option>Select your industry...</option>
+                                    <option>Agriculture</option>
+                                    <option>Air, rail and water transport</option>
+                                    <option>Arts and recreational services</option>
+                                    <option>Building, construction and on-site trades</option>
+                                    <option>Business, Finance and Employment Services</option>
+                                    <option>Clerical</option>
+                                    <option>Contract Cleaning</option>
+                                    <option>Education, training and children's services</option>
+                                    <option>Food manufacturing and processing</option>
+                                    <option>Hair and Beauty</option>
+                                    <option>Health Support Services</option>
+                                    <option>Horticulture</option>
+                                    <option>Hospitality</option>
+                                    <option>Manufacturing</option>
+                                    <option>Mining</option>
+                                    <option>Personal and household services</option>
+                                    <option>Power, water and gas</option>
+                                    <option>Print, Media and Telecommunications</option>
+                                    <option>Professional Services</option>
+                                    <option>Real Estate</option>
+                                    <option>Retail</option>
+                                    <option>Retail Trade</option>
+                                    <option>Road Transport</option>
+                                    <option>Security</option>
+                                    <option>Security and public services</option>
+                                    <option>Social, community, disability and home care services</option>
+                                    <option>Storage services and wholesale</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="mySlides">
+                                <label class="required">What is your type of employment?</label>
+                                <select class="w3-input w3-section w3-border" required name="major">
+                                    <option>Select your type of employment...</option>
+                                    <option>Full time</option>
+                                    <option>Part time</option>
+                                    <option>Casual</option>
+                                </select>
+                            </div>
+                            <div class="mySlides">
+                                <label class="required">Your Skill Level</label>
+                <select class="w3-input w3-section w3-border" required name="skills">
+                    <option>Select your skill level...</option>
+                    <option>Level 1</option>
+                    <option>Level 2</option>
+                    <option>Level 3</option>
+                    <option>Level 4</option>
+                    <option>Level 5</option>
+                    <option>Not important</option>
                 </select>
+                            </div>
 
+                            <button id="back-button" class="function-button" onclick="plusDivs(-1)">Go Back</button>
+                            <button id="next-button" class="function-button w3-right" type="submit" onclick="plusDivs(+1)">Next</button>
+                        </div>
+                    </div>
+                    <div class="w3-half">
+                        <h3>Here will show the results.</h3>
+                        <hr>
+                    </div>
+                </div>
 
-      <p><button class="function-button">Submit your answers</button></p>
-    </div>
-  </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<!-- Script for slideshows -->
+<script>
+
+// Slideshows
+let slideIndex = 1;
+
+function plusDivs(n) {
+  slideIndex = slideIndex + n;
+  showDivs(slideIndex);
+}
+
+function showDivs(n) {
+  let x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+
+  if(n < x.length) {
+      for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+      x[slideIndex - 1].style.display = "block";
+  }else{
+       document.getElementById("next-button").innerHTML = "Submit";
+  }
+
+}
+
+showDivs(1);
+
+</script>

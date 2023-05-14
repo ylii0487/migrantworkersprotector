@@ -71,49 +71,46 @@ class MySQLDatabase():
         self.cursor.close()
         self.conn.close()
 
-    def tables_setup(self):
-
-        sql_cmd1 = """CREATE TABLE IF NOT EXISTS BackgroundInfo(
-                    info_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                    age varchar(3),
-                    gender varchar(100),
-                    major varchar(100) NOT NULL,
-                    skills varchar(100) NOT NULL,
-                    industry varchar(100),
-                    experience varchar(700) NOT NULL
-                    )"""
-
-        self.cursor.execute(sql_cmd1)
-        self.commit()
-        # self.close()
-
-    def add_info(self, age, gender, major, skills, industry, experience):
-
-        sql_cmd = """INSERT INTO BackgroundInfo(age, gender, major, skills, industry, experience)
-                        VALUES('{age}', '{gender}','{major}', '{skills}', '{industry}', "{experience}")
-                        """.format(age=age, gender=gender, major=major, skills=skills, industry=industry,
-                                   experience=experience)
-        self.cursor.execute(sql_cmd)
-
-        self.commit()
-        # self.close()
-
-        return True
-
-    #
-    def get_allInfos(self):
-        sql_cmd = """SELECT *
-                FROM BackgroundInfo
+    def get_allInfos_AskForHelp_Type(self):
+        sql_cmd = """SELECT DISTINCT type
+                FROM AskForHelp
                 """
 
         self.cursor.execute(sql_cmd)
 
         result = list(self.cursor.fetchall())
-        # print(result)
         self.commit()
         # self.close()
 
         return result
+
+    def get_allInfos_AskForHelp_Topic(self, quiz_type):
+        sql_cmd = """SELECT DISTINCT topic
+                FROM AskForHelp
+                WHERE type LIKE '%{quiz_type}%'
+                            """.format(quiz_type=quiz_type)
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        self.commit()
+        # self.close()
+        return result
+
+    def get_allInfos_AskForHelp_Result(self, quiz_type, quiz_topic):
+        sql_cmd = """SELECT description, ways
+                FROM AskForHelp
+                WHERE type LIKE '%{type}%' and topic LIKE '%{topic}%'
+                            """.format(type=quiz_type, topic=quiz_topic)
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        self.commit()
+        # self.close()
+
+        return result
+
 
     def get_allInfos_WorkingRights(self):
         sql_cmd = """SELECT *

@@ -30,7 +30,7 @@
 }
 
 .nav-button:hover{
-    background-color:  #C9B4C7;
+    background-color:  navajowhite;
 }
 
 .dropdown {
@@ -87,15 +87,12 @@
 }
 
 .dropdown-button.active {
-  background-color:  #C9B4C7;
+  background-color:  navajowhite;
   color: black;
 }
 
-.body{
+body{
     font-family: Georgia, sans-serif;
-    background-image: url("../images/guideline_bg.jpg");
-
-
 }
 
 
@@ -104,9 +101,9 @@ h1, h2, h3, h4, h5, h6{
     letter-spacing: 2px;
 }
 
-/* Add a gray background color and some padding to the footer */
+/* Add a transparent background color and some padding to the footer */
 footer {
-    background-color: lightgray;
+    background-color: transparent;
     padding: 20px;
     font-family: Georgia, sans-serif;
     position: page;
@@ -136,7 +133,7 @@ p{
 }
 
 .button{
-    background-color:  #C9B4C7;
+    background-color:  navajowhite;
     color: black;
     font-family: "Georgia", serif;
     font-size: 15px;
@@ -151,17 +148,17 @@ p{
 
 
 .button:hover {
-    background-color:#C9B4C7;
+    background-color:navajowhite;
     transition: 0.1s;
   }
 
 .active{
-  background-color:  #C9B4C7;
+  background-color:navajowhite;
   color: black;
 }
 
 .navbar-inverse .navbar-inverse>li>a{
-    background-color:  #C9B4C7;
+    background-color: navajowhite;
     color: black;
 }
 
@@ -169,7 +166,7 @@ p{
 
 
 .bg-block {
-    background-color:  #C9B4C7;
+    background-color:navajowhite;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
     flex-direction: column;
@@ -215,7 +212,7 @@ p{
 
 .function-button {
   background-color: transparent;
-  border: 2px solid #C9B4C7;
+  border: 2px solid navajowhite;
   color: #000000;
   padding: 15px 32px;
   text-align: center;
@@ -253,7 +250,7 @@ p{
 }
 
 .arrow-button:hover{
-  background-color: #C9B4C7;
+  background-color: navajowhite;
 }
 
 .arrow-button{
@@ -356,4 +353,77 @@ p{
   font-style: italic;
   font-weight: 400;
   text-decoration: none;
+}
+
+.tab-button {
+  /*color: #1f2022;*/
+  /*letter-spacing: 1.3px;*/
+  /*text-transform: uppercase;*/
+  /*background-color: #fff;*/
+  /*border-radius: 50px;*/
+  /*padding: 22px 36px;*/
+  /*font-family: Georgia, serif;*/
+  /*font-size: 13px;*/
+  /*line-height: 140%;*/
+  /*text-decoration: none;*/
+  /*transition: color .2s, background-color .2s;*/
+    width: 250px;
+
+    background-color: #fff;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  color: #1f2022;;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
+    border-radius: 50px;
+    padding: 22px 36px;
+    font-family: Georgia, serif;
+    letter-spacing: 1.3px;
+    line-height: 140%;
+    text-transform: uppercase;
+}
+
+.tab-button:hover {
+  color: #fff;
+  background-color: #1f2022;
+}
+
+.privacy-image{
+    background-image: url("../images/Work-Visa.jpg");
+    background-repeat: no-repeat;
+  background-size: cover;
+    opacity: 70%;
+}
+
+.quiz-button {
+  background-color: white;
+  border: 2px solid navajowhite;
+  color: #000000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.quiz-button:hover {
+  color: #fff;
+  background-color: #1f2022;
+}
+
+label{
+    font-family: "Georgia", serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.quiz-button:disabled,
+.quiz-button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }

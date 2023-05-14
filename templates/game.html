@@ -22,15 +22,7 @@
               </div>
           </li>
 
-          <li>
-              <div class="dropdown w3-mobile w3-bar-item">
-                  <button class="dropdown-button">Ask For Help <i class="fa fa-caret-down"></i></button>
-                  <div class="dropdown-content">
-                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">General Answer</a>
-                      <a href="/BackgroundCollection" class="w3-bar-item w3-button w3-mobile">Get Relevant Answers</a>
-                  </div>
-              </div>
-          </li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp" >Ask For Help</a></li>
 
           <li><a class="w3-bar-item w3-button w3-text-black active" href="/Game" >Scavenger Hunt Game</a></li>
           <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
@@ -46,18 +38,18 @@
 
     <h1 class="w3-center">Scavenger Hunt Game</h1>
 
-    <h3 class="w3-center">Can you find all everyday safety hazards by clicking on the images below?</h3>
+    <h3 class="w3-center">Discover safety hazards in various workplaces by clicking on the images below.</h3>
     <br>
      <hr>
 
-    <div class="navbar w3-center">
-        <button class="w3-bar-item bg-button imglink" onclick="show(event, 'factory');" id="Factory">Factory</button>
-        <button class="w3-bar-item bg-button imglink" onclick="show(event, 'farm');" id="Farm">Farm</button>
+    <div class="navbar w3-center" style="background-color: #eee; border-radius: 50px;border: none;" >
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'factory');" id="Factory">Factory</button>
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'farm');" id="Farm">Farm</button>
 
-        <button class="w3-bar-item bg-button imglink" onclick="show(event, 'office');" id="Office">Office</button>
-        <button class="w3-bar-item bg-button imglink" onclick="show(event, 'truckyard');" id="Truck Yard">Truck Yard
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'office');" id="Office">Office</button>
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'truckyard');" id="Truck Yard">Truck Yard
         </button>
-        <button class="w3-bar-item bg-button imglink" onclick="show(event, 'hospital');" id="Hospital">Hospital</button>
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'hospital');" id="Hospital">Hospital</button>
 
 
     </div>

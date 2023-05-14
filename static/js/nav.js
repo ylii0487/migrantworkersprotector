@@ -34,3 +34,4 @@ function show(evt, linkName) {
 // Click on the first tablink on load
 
 document.getElementsByClassName("imglink")[0].click()
+
