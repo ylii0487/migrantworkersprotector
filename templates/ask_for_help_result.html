@@ -43,7 +43,7 @@
     <div class="w3-display-container w3-content" style="max-width:1500px;min-width:200px">
         <img class="w3-image" src="../static/images/labour-law.jpg" alt="info_background" width="5001" height="3335"
              style="opacity: 55%;">
-        <div class="w3-display-topmiddle w3-padding-16 w3-card" style="width:90%; background-color: antiquewhite">
+        <div class="w3-display-topmiddle w3-padding-16 w3-card" style="width:90%; background-color: silver">
             <h2 class="w3-center">Successfully Submitted</h2>
             <h2 class="w3-center">There are some suitable solutions we have found for you so far</h2>
 
@@ -63,7 +63,7 @@
                         </div>
 
                         <div id="{{ description }}" class="w3-container w3-hide">
-                            <div class="text" id="convert" >{{ descriptions[description] }}</div>
+                            <div class="text" id="convert" >{{ descriptions[description]|safe }}</div>
 
                                 <br>
 

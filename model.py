@@ -45,28 +45,30 @@ def help_page():
 
 
 def help_page_result(quiz_type, quiz_topic, quiz_fix):
-    database.connect()
-    results = database.get_allInfos_AskForHelp_Result(quiz_type, quiz_topic)
-    database.close()
-    descriptions = {}
-    print(quiz_type)
-    print(quiz_topic)
-    print(quiz_fix)
-    if quiz_fix == 'yes':
-        message = 'Good'
-        descriptions.update({message: 'Good'})
+    if page_security.is_xss(quiz_type) or page_security.is_sql_injection(quiz_type) or page_security.is_xss(quiz_topic) or page_security.is_sql_injection(quiz_topic) or page_security.is_xss(quiz_fix) or page_security.is_sql_injection(quiz_fix):
+        err_str = "String formate is incorrect"
+        return page_view("invalid_add", reason=err_str)
     else:
-        for result in results:
-            if result[0] in descriptions:
-                descriptions[result[0]] = result[1]
-            else:
-                descriptions.update({result[0]: result[1]})
+        database.connect()
+        results = database.get_allInfos_AskForHelp_Result(quiz_type, quiz_topic)
+        database.close()
+        descriptions = {}
 
-    print(descriptions)
-    for description in descriptions:
-        print(description)
+        if quiz_fix == 'yes':
+            message = 'Good'
+            descriptions.update({message: 'Good'})
+        else:
+            for result in results:
+                if result[0] in descriptions:
+                    descriptions[result[0]] = result[1]
+                else:
+                    descriptions.update({result[0]: result[1]})
 
-    return page_view("ask_for_help_result", descriptions=descriptions)
+        print(descriptions)
+        for description in descriptions:
+            print(description)
+
+        return page_view("ask_for_help_result", descriptions=descriptions)
 
 
 def game_page():
