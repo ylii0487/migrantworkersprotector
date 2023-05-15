@@ -46,9 +46,9 @@
                     <div class="w3-half">
                         <h3>Please enter your answer here</h3>
                         <hr>
-                        <div class="w3-content">
 
-                                <label class="required" >Your Industry</label>
+                        <div class="w3-content">
+                            <label class="required" >Your Industry</label>
                             <input class="w3-input w3-section w3-border" type="text" id="industry" list="industryList" required name="industry">
                                 <datalist  id="industryList" >
                                     {% for classification in classifications %}
@@ -65,13 +65,14 @@
                                 </select>
 
 
-                            <button class="function-button" type="submit">Calculate</button>
+                            <button class="function-button" type="submit" onclick="showResult()">Calculate</button>
 
                         </div>
                     </div>
                     <div class="w3-half">
                         <h3>The results will show below: </h3>
                         <hr>
+                        <h4 class="w3-center" id="result-text"></h4>
                     </div>
                 </div>
 

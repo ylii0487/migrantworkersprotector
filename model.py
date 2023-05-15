@@ -102,19 +102,19 @@ def guideline_page():
 
     for guideline in guidelines:
 
-        if guideline[4] in titles:
-            if guideline[5] in subtitles:
-                subtitles[guideline[5]] = guideline[6]
+        if guideline[5] in titles:
+            if guideline[6] in subtitles:
+                subtitles[guideline[6]] = guideline[7]
             else:
-                subtitles.update({guideline[5]: guideline[6]})
-            titles[guideline[4]] = subtitles
+                subtitles.update({guideline[6]: guideline[7]})
+            titles[guideline[5]] = subtitles
         else:
             subtitles = {}
-            if guideline[5] in subtitles:
-                subtitles[guideline[5]] = guideline[6]
+            if guideline[6] in subtitles:
+                subtitles[guideline[6]] = guideline[7]
             else:
-                subtitles.update({guideline[5]: guideline[6]})
-            titles.update({guideline[4]: subtitles})
+                subtitles.update({guideline[6]: guideline[7]})
+            titles.update({guideline[5]: subtitles})
 
     return page_view("guideline", types=guideline_type, titles=titles)
     # return page_view("guideline")
@@ -142,19 +142,19 @@ def guideline_resultpage(search_keywords):
 
             for guideline in search_guidelines:
 
-                if guideline[4] in search_titles:
-                    if guideline[5] in subtitles:
-                        subtitles[guideline[5]] = guideline[6]
+                if guideline[5] in search_titles:
+                    if guideline[6] in subtitles:
+                        subtitles[guideline[6]] = guideline[7]
                     else:
-                        subtitles.update({guideline[5]: guideline[6]})
-                    search_titles[guideline[4]] = subtitles
+                        subtitles.update({guideline[6]: guideline[7]})
+                    search_titles[guideline[5]] = subtitles
                 else:
                     subtitles = {}
-                    if guideline[5] in subtitles:
-                        subtitles[guideline[5]] = guideline[6]
+                    if guideline[6] in subtitles:
+                        subtitles[guideline[6]] = guideline[7]
                     else:
-                        subtitles.update({guideline[5]: guideline[6]})
-                    search_titles.update({guideline[4]: subtitles})
+                        subtitles.update({guideline[6]: guideline[7]})
+                    search_titles.update({guideline[5]: subtitles})
 
             return page_view("guideline_result", types=search_guideline_type, titles=search_titles,
                              keywords=search_keywords)
@@ -167,21 +167,22 @@ def guideline_type_page(search_types):
     search_titles = {}
     subtitles = {}
     # print(search_types)
+    print(search_guidelines)
     for guideline in search_guidelines:
 
-        if guideline[4] in search_titles:
-            if guideline[5] in subtitles:
-                subtitles[guideline[5]] = guideline[6]
+        if guideline[5] in search_titles:
+            if guideline[6] in subtitles:
+                subtitles[guideline[6]] = guideline[7]
             else:
-                subtitles.update({guideline[5]: guideline[6]})
-            search_titles[guideline[4]] = subtitles
+                subtitles.update({guideline[6]: guideline[7]})
+            search_titles[guideline[5]] = subtitles
         else:
             subtitles = {}
-            if guideline[5] in subtitles:
-                subtitles[guideline[5]] = guideline[6]
+            if guideline[6] in subtitles:
+                subtitles[guideline[6]] = guideline[7]
             else:
-                subtitles.update({guideline[5]: guideline[6]})
-            search_titles.update({guideline[4]: subtitles})
+                subtitles.update({guideline[6]: guideline[7]})
+            search_titles.update({guideline[5]: subtitles})
 
     return page_view("guideline_type", types=search_types, titles=search_titles)
 
