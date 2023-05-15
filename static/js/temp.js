@@ -12,6 +12,11 @@ function handleChange(input) {
     if (input.value > 100) input.value = 100;
 }
 
+document.querySelector('.dropdown-button').addEventListener('click', function() {
+  this.classList.toggle('active');
+});
+
+
 
 
 

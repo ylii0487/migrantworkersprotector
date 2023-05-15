@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse w3-white w3-xlarge">
+<nav class="navbar navbar-inverse w3-white w3-large">
     <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
@@ -10,13 +10,25 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black active" href="/StatisticalData">Statistical Data</a>
-                </li>
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/BackgroundCollection">Background
-                    Collection</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/Game">Scavenger Hunt Game</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline">Guideline</a></li>
+                          <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
+          <li>
+              <div class="dropdown w3-mobile w3-bar-item">
+                  <a class="w3-bar-item dropdown-button w3-mobile active">Wage Information <i class="fa fa-caret-down"></i></a>
+                  <div class="dropdown-content">
+                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
+                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile active">Explore Statistic</a>
+
+                  </div>
+              </div>
+          </li>
+
+
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp" >Ask For Help</a></li>
+
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
+
+
             </ul>
 
         </div>
@@ -24,27 +36,39 @@
 </nav>
 
 <div class="carousel">
-    <h1 class="w3-center">Explore Statistic</h1>
-<hr>
+
+
     <div class="w3-container w3-content" style="max-width:1400px;">
         <div class="w3-display-topmiddle" style="width:90%">
+            <h1 class="w3-center">Explore Statistic</h1>
+            <hr>
             <div class="navbar w3-center">
-                <button class="w3-bar-item button tablink" onclick="openLink(event, 'holiday');">Check Holiday</button>
-                <button class="w3-bar-item button tablink" onclick="openLink(event, 'industry');">Average Weekly
+                <button class="w3-bar-item bg-button tablink" onclick="openLink(event, 'holiday');">Check Holiday</button>
+                <button class="w3-bar-item bg-button tablink" onclick="openLink(event, 'industry');">Average Weekly
                     Earnings By Industry
                 </button>
-                <button class="w3-bar-item button tablink" onclick="openLink(event, 'state');">Average Weekly Earnings
+                <button class="w3-bar-item bg-button tablink" onclick="openLink(event, 'state');">Average Weekly Earnings
                     By State
                 </button>
 
 
             </div>
+
         </div>
 
             <!-- Tabs -->
             <div id="holiday" class="w3-white w3-padding-16 myLink">
+                <br>
+                <br>
+                <br>
+                <br>
+                                <br>
+                <br>
+                <br>
+                <br>
                 <h3 class="w3-center"><b>You can check if your working hours are on holiday.</b></h3>
-                <hr>
+                <br>
+                <br>
                 <div class="w3-row">
                     <div class="w3-col m9">
                         <iframe height="800px" width="100%" allow="fullscreen" frameborder="no"
@@ -70,6 +94,14 @@
 
 
             <div id="industry" class="w3-white w3-padding-16 myLink">
+                                <br>
+                <br>
+                <br>
+                <br>
+                                <br>
+                <br>
+                <br>
+                <br>
                 <h3 class="w3-center"><b>You can check the average weekly ordinary time earnings, full-time adults by
                     industry, original</b></h3>
                 <br>
@@ -101,9 +133,18 @@
 
 
             <div id="state" class="w3-white w3-padding-16 myLink">
+                                <br>
+                <br>
+                <br>
+                <br>
+                                <br>
+                <br>
+                <br>
+                <br>
                 <h3 class="w3-center"><b>You can check the average weekly ordinary time earnings, full-time adults by
                     state, original</b></h3>
-
+<br>
+                <br>
                 <div class="w3-left">
                         <label style="margin-bottom: 0">The type of employee</label>
                         <div class="navbar w3-center">
@@ -156,5 +197,4 @@
         </div>
 </div>
         <script type="text/javascript" src="/static/js/nav.js"></script>
-        <script type="text/javascript" src="/static/js/imageShow.js"></script>
 

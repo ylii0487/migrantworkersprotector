@@ -1,0 +1,82 @@
+<nav class="navbar navbar-inverse w3-white w3-large">
+    <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                          <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
+          <li>
+              <div class="dropdown w3-mobile w3-bar-item">
+                  <button class="dropdown-button active">Wage Information <i class="fa fa-caret-down"></i></button>
+                  <div class="dropdown-content">
+                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile active">Salary Calculator</a>
+                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
+
+                  </div>
+              </div>
+          </li>
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp" >Ask For Help</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="carousel">
+
+    <div class="w3-display-container w3-content" style="max-width:1500px">
+        <img class="w3-image" src="../static/images/safety_bg.jpg" alt="background" width="5184" height="3456"
+             style="opacity: 70%">
+        <div class="w3-display-middle" style="width:65%">
+            <h1 class="w3-center" style="color: #FFFFFF">Salary Calculator</h1>
+            <h3 class="w3-center " style="color: #FFFFFF">You can check your salary be paid fairly or not.</h3>
+            <!-- Tabs -->
+            <div class="w3-container w3-white w3-padding-16">
+                <div class="w3-row-padding" style="margin:0 -16px;">
+                    <div class="w3-half">
+                        <h3>Please enter your answer here</h3>
+                        <hr>
+                        <div class="w3-content">
+
+                                <label class="required" >Your Industry</label>
+                            <input class="w3-input w3-section w3-border" type="text" id="industry" list="industryList" required name="industry">
+                                <datalist  id="industryList" >
+                                    {% for classification in classifications %}
+                                    <option value="{{ classification[0] }}"></option>
+                                    {% endfor %}
+                                </datalist>
+
+
+                                <label class="required">What is your type of employment?</label>
+                                <select class="w3-input w3-section w3-border" required name="work_type">
+                                    <option>Full time</option>
+                                    <option>Part time</option>
+                                    <option>Casual</option>
+                                </select>
+
+
+                            <button class="function-button" type="submit">Calculate</button>
+
+                        </div>
+                    </div>
+                    <div class="w3-half">
+                        <h3>The results will show below: </h3>
+                        <hr>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

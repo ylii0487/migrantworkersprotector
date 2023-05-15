@@ -1,21 +1,35 @@
-<nav class="navbar navbar-inverse w3-white w3-xlarge">
+<nav class="navbar navbar-inverse w3-white w3-large">
   <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
+        <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
-        <li><a class="w3-bar-item w3-button w3-text-black" href="/StatisticalData">Statistical Data</a></li>
-        <li><a class="w3-bar-item w3-button w3-text-black active" href="/BackgroundCollection" >Background Collection</a></li>
-        <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
+          <li>
+              <div class="dropdown w3-mobile w3-bar-item">
+                  <button class="dropdown-button">Wage Information <i class="fa fa-caret-down"></i></button>
+                  <div class="dropdown-content">
+
+                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
+                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
+                  </div>
+              </div>
+          </li>
+
+          <li><a class="w3-bar-item w3-button w3-text-black active" href="/AskForHelp" >Ask For Help</a></li>
+
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
           <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
+
+
       </ul>
+
     </div>
   </div>
 </nav>
@@ -32,7 +46,7 @@
             <h3 class="w3-center">We will give you the most suitable advice for your situation </h3>
             <hr style="height: 2px">
 
-          <p><button class="button" onclick="window.location.href='/home';">Go to Home Page</button></p>
+          <p><button class="function-button" onclick="window.location.href='/home';">Go to Home Page</button></p>
         </div>
 
       </div>

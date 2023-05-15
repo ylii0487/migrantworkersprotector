@@ -1,52 +1,55 @@
-<nav class="navbar navbar-inverse w3-white w3-xlarge">
-    <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/StatisticalData">Statistical Data</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/BackgroundCollection">Background
-                    Collection</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black active" href="/Game">Scavenger Hunt Game</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline">Guideline</a></li>
-            </ul>
-
-        </div>
+<nav class="navbar navbar-inverse w3-white w3-large">
+  <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
     </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
+          <li>
+              <div class="dropdown w3-mobile w3-bar-item">
+                  <button class="dropdown-button">Wage Information <i class="fa fa-caret-down"></i></button>
+                  <div class="dropdown-content">
+                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
+                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
+
+                  </div>
+              </div>
+          </li>
+
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp" >Ask For Help</a></li>
+
+          <li><a class="w3-bar-item w3-button w3-text-black active" href="/Game" >Scavenger Hunt Game</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
+
+
+      </ul>
+
+    </div>
+  </div>
 </nav>
 
 <div class="carousel">
 
     <h1 class="w3-center">Scavenger Hunt Game</h1>
-    <hr>
-    <h3 class="w3-center">Can you find all everyday safety hazards by clicking on the images below?</h3>
+
+    <h3 class="w3-center">Discover safety hazards in various workplaces by clicking on the images below.</h3>
     <br>
-    {#<div class="w3-dropdown-hover w3-center " style="margin-left: 43%">
-          <button class="button" >Select Your Workplace!</button>
-          <div class="w3-dropdown-content w3-bar-block w3-border">
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'farm');" id="Farm">Farm</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'factory');" id="Factory">Factory</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'office');" id="Office">Office</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'truckyard');" id="Truck Yard">Truck Yard</button>
-              <button class="w3-bar-item w3-button imglink" onclick="show(event, 'hospital');" id="Hospital">Hospital</button>
-          </div>
-    </div>#}
+     <hr>
 
-    <div class="navbar w3-center">
-        <button class="w3-bar-item button imglink" onclick="show(event, 'factory');" id="Factory">Factory</button>
-        <button class="w3-bar-item button imglink" onclick="show(event, 'farm');" id="Farm">Farm</button>
+    <div class="navbar w3-center" style="background-color: #eee; border-radius: 50px;border: none;" >
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'factory');" id="Factory">Factory</button>
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'farm');" id="Farm">Farm</button>
 
-        <button class="w3-bar-item button imglink" onclick="show(event, 'office');" id="Office">Office</button>
-        <button class="w3-bar-item button imglink" onclick="show(event, 'truckyard');" id="Truck Yard">Truck Yard
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'office');" id="Office">Office</button>
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'truckyard');" id="Truck Yard">Truck Yard
         </button>
-        <button class="w3-bar-item button imglink" onclick="show(event, 'hospital');" id="Hospital">Hospital</button>
+        <button class="w3-bar-item tab-button imglink" onclick="show(event, 'hospital');" id="Hospital">Hospital</button>
 
 
     </div>
@@ -66,15 +69,18 @@
 
                 <br>
                 <br>
+                <h4>Can you find all the hidden dangers?</h4>
                 <br>
                 <br>
                 <div id="tips" class="w3-xlarge"></div>
                 <br>
                 <br>
+                <hr>
                 <p style="color: red">If you cannot find all answers, you can click this button to find all answers.</p>
-                <button class="button w3-margin-right" onclick="display_answer_image(event)">Check Answers!</button>
+                <br>
+                <button class="function-button w3-margin-right" onclick="display_answer_image(event)">Check Answers!</button>
 
-                <button class="button w3-margin-right" onclick="window.location.href='/Game';">Clear All</button>
+                <button class="function-button w3-margin-right" onclick="window.location.href='/Game';">Clear All</button>
 
             </div>
 

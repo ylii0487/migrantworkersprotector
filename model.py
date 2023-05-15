@@ -7,8 +7,6 @@ import json
 
 page_view = view.View()
 database = database.MySQLDatabase()
-database.connect()
-# database.tables_setup()
 
 page_security = security.Security()
 
@@ -21,33 +19,63 @@ def data_page():
     return page_view("data")
 
 
-def information_page():
-    return page_view("information")
+def salary_calculator_page():
+    database.connect()
+    classifications = database.get_allInfos_Calculator_Classification()
+    calculator_types = database.get_allInfos_Calculator_Type()
+    database.close()
+
+    print(classifications)
+    print(calculator_types)
+    return page_view("calculator", classifications=classifications, calculator_types=calculator_types)
 
 
-def fill_information(age, gender, major, skills, industry, experience):
-    if len(major.split(" ")) == 0 or len(skills.split(" ")) == 0 or len(experience.split(" ")) == 0:
+def salary_calculator_result_page(industry, work_type):
+    return page_view("calculator", industry=industry, work_type=work_type)
 
-        err_str = "major or skills or experience cannot be null"
 
-        return page_view("invalid_add", reason=err_str)
+def help_page():
+    database.connect()
+    help_types = database.get_allInfos_AskForHelp_Type()
+    topics = {}
+    for help_type in help_types:
+        help_topics = database.get_allInfos_AskForHelp_Topic(help_type[0])
 
-    else:
-        if page_security.is_xss(age) or page_security.is_sql_injection(age) or page_security.is_xss(
-                major) or page_security.is_sql_injection(major) or page_security.is_xss(
-            skills) or page_security.is_sql_injection(skills) or page_security.is_xss(
-            industry) or page_security.is_sql_injection(industry) or page_security.is_xss(
-            experience) or page_security.is_sql_injection(experience):
-            err_str = "String formate is incorrect"
-            return page_view("invalid_add", reason=err_str)
+        if help_type in topics:
+            topics[help_type] = help_topics
         else:
-            fill_info = database.add_info(age, gender, major, skills, industry, experience)
-            database.get_allInfos()
-            if fill_info:
-                return page_view("information_successful")
-            else:
-                err_str = "The information is invalid"
-                return page_view("invalid_add", reason=err_str)
+            topics.update({help_type: help_topics})
+
+    database.close()
+
+    return page_view("ask_for_help", types=help_types, topics=topics)
+
+
+def help_page_result(quiz_type, quiz_topic, quiz_fix):
+    if page_security.is_xss(quiz_type) or page_security.is_sql_injection(quiz_type) or page_security.is_xss(quiz_topic) or page_security.is_sql_injection(quiz_topic) or page_security.is_xss(quiz_fix) or page_security.is_sql_injection(quiz_fix):
+        err_str = "String formate is incorrect"
+        return page_view("invalid_add", reason=err_str)
+    else:
+        database.connect()
+        results = database.get_allInfos_AskForHelp_Result(quiz_type, quiz_topic)
+        database.close()
+        descriptions = {}
+
+        if quiz_fix == 'yes':
+            message = 'Good'
+            descriptions.update({message: 'Good'})
+        else:
+            for result in results:
+                if result[0] in descriptions:
+                    descriptions[result[0]] = result[1]
+                else:
+                    descriptions.update({result[0]: result[1]})
+
+        print(descriptions)
+        for description in descriptions:
+            print(description)
+
+        return page_view("ask_for_help_result", descriptions=descriptions)
 
 
 def game_page():
@@ -64,8 +92,10 @@ def game_answers_page():
 
 
 def guideline_page():
+    database.connect()
     guidelines = database.get_allInfos_WorkingRights()
     guideline_type = database.get_allInfos_WorkingRights_Type()
+    database.close()
     # guideline_title = database.get_allInfos_WorkingRights_Title()
     titles = {}
     subtitles = {}
@@ -102,9 +132,11 @@ def guideline_resultpage(search_keywords):
             err_str = "String formate is incorrect"
             return page_view("invalid_add", reason=err_str)
         else:
+            database.connect()
             search_guidelines = database.get_searchGuideline(search_keywords)
 
             search_guideline_type = database.get_allInfos_WorkingRights_Type()
+            database.close()
             search_titles = {}
             subtitles = {}
 
@@ -124,14 +156,16 @@ def guideline_resultpage(search_keywords):
                         subtitles.update({guideline[5]: guideline[6]})
                     search_titles.update({guideline[4]: subtitles})
 
-            return page_view("guideline", types=search_guideline_type, titles=search_titles)
+            return page_view("guideline_result", types=search_guideline_type, titles=search_titles,
+                             keywords=search_keywords)
 
 
 def guideline_type_page(search_types):
+    database.connect()
     search_guidelines = database.get_searchGuideline_type(search_types)
+    database.close()
     search_titles = {}
     subtitles = {}
-    database.close()
     # print(search_types)
     for guideline in search_guidelines:
 
@@ -154,3 +188,11 @@ def guideline_type_page(search_types):
 
 def about_page():
     return page_view("about")
+
+
+def privacy_page():
+    return page_view("privacy")
+
+
+def reference_page():
+    return page_view("reference")

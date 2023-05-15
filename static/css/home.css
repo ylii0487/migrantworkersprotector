@@ -5,16 +5,94 @@
     font-family: Georgia, sans-serif;
     border-color: #FFFFFF;
     border-bottom-color: #000000;
-    overflow: hidden;
     background-color: #FFFFFF;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
 }
 
-
-.body{
+.nav-button{
+    border-radius: 50px;
+    letter-spacing: 1.3px;
+    border: none;
+    outline: none;
+    color: #0a0a0a;
+    padding: 14px 16px;
+    margin: 0;
+    font-size: 17px;
     font-family: Georgia, sans-serif;
-    background-image: url("../images/guideline_bg.jpg");
+    overflow: visible;
+    background-color: #FFFFFF;
+    position: relative;
+    display: inline-block;
+    top: 100%;
 
+}
 
+.nav-button:hover{
+    background-color:  navajowhite;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button{
+    letter-spacing: 1.3px;
+    border: none;
+    outline: none;
+    color: #0a0a0a;
+    padding: 14px 16px;
+    margin: 0;
+    font-size: 17px;
+    font-family: Georgia, sans-serif;
+    overflow: visible;
+    background-color: #FFFFFF;
+    position: relative;
+    display: inline-block;
+    top: 100%;
+
+}
+
+.dropdown-content {
+
+  display: none;
+    position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+    position: center;
+}
+
+.dropdown-content a:hover {
+   background-color:  #E0DFE4;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropdown-button {
+  background-color:  #E0DFE4;
+}
+
+.dropdown-button.active {
+  background-color:  navajowhite;
+  color: black;
+}
+
+body{
+    font-family: Georgia, sans-serif;
 }
 
 
@@ -23,9 +101,9 @@ h1, h2, h3, h4, h5, h6{
     letter-spacing: 2px;
 }
 
-/* Add a gray background color and some padding to the footer */
+/* Add a transparent background color and some padding to the footer */
 footer {
-    background-color: lightgray;
+    background-color: transparent;
     padding: 20px;
     font-family: Georgia, sans-serif;
     position: page;
@@ -55,7 +133,7 @@ p{
 }
 
 .button{
-    background-color: navajowhite;
+    background-color:  navajowhite;
     color: black;
     font-family: "Georgia", serif;
     font-size: 15px;
@@ -70,12 +148,12 @@ p{
 
 
 .button:hover {
-    background-color:#FFFFDD;
+    background-color:navajowhite;
     transition: 0.1s;
   }
 
 .active{
-  background-color: navajowhite;
+  background-color:navajowhite;
   color: black;
 }
 
@@ -84,20 +162,11 @@ p{
     color: black;
 }
 
-.nav-button{
-    font-family: Georgia, serif;
-    font-size: 16px;
-    padding: 5px 30px 5px 10px;
-    color: #FFFFFF;
-}
 
-.nav-button:hover{
-    color: navajowhite;
-}
 
 
 .bg-block {
-    background-color: navajowhite;
+    background-color:navajowhite;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
     flex-direction: column;
@@ -121,26 +190,6 @@ p{
     display: flex;
 }
 
-.bg-image{
-    width: 100%;
-    min-height: 650px;
-    grid-column-gap: 16px;
-  grid-row-gap: 16px;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 30px;
-  flex-direction: row;
-  grid-template-rows: auto auto;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-columns: 1fr;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: flex;
-  box-shadow: 0 60px 60px -15px rgba(31, 32, 34, .1);
-    margin-right: 10px;
-    margin-left: 10px;
-}
 
 .bg-button {
   color: #1f2022;
@@ -161,6 +210,25 @@ p{
   background-color: #1f2022;
 }
 
+.function-button {
+  background-color: transparent;
+  border: 2px solid navajowhite;
+  color: #000000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.function-button:hover {
+  color: #fff;
+  background-color: #1f2022;
+}
+
 
 .answer{
     font-family: Georgia, serif;
@@ -173,22 +241,7 @@ p{
 }
 
 
-.dropbutton {
-    letter-spacing: 1.3px;
-    border: none;
-    outline: none;
-    color: #0a0a0a;
-    padding: 14px 16px;
-    margin: 0;
-    font-size: 17px;
-    font-family: Georgia, sans-serif;
-    overflow: hidden;
-    background-color: #FFFFFF;
-}
 
-.dropbutton:hover {
-  background-color: navajowhite;
-}
 
 .text{
     font-size: 20px;
@@ -196,24 +249,170 @@ p{
     line-height:150%;
 }
 
+.arrow-button:hover{
+  background-color: navajowhite;
+}
+
 .arrow-button{
     color: #1f2022;
-  letter-spacing: 1.3px;
-  text-transform: uppercase;
   background-color: #fff;
   border-radius: 100px;
+    border-color: rgba(255, 255, 255, 0);
   padding: 22px 36px;
   font-family: Georgia, serif;
+}
+
+.w-layout-grid {
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+
+.lynx-link-footer-large-2 {
+  color: #1f2022;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-family: Varela, sans-serif;
   font-size: 13px;
   line-height: 140%;
   text-decoration: none;
-  transition: color .2s, background-color .2s;
+  transition: color .2s;
+}
 
+.lynx-link-footer-large-2:hover {
+  color: #8979ec;
+}
+
+.lynx-heading-footer-2 {
+  color: rgba(31, 32, 34, .5);
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  font-family: Varela, sans-serif;
+  font-size: 11px;
+  line-height: 140%;
+}
+
+.lynx-block-footer-2 {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.lynx-link-footer-2 {
+  color: rgba(31, 32, 34, .5);
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  padding-top: 24px;
+  font-family: Georgia, Times, Times New Roman, serif;
+  font-size: 11px;
+  line-height: 140%;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.lynx-link-footer-2:hover {
+  color: #1f2022;
+}
+
+.lynx-logo-footer-2 {
+  width: 76px;
+  margin-bottom: 16px;
+}
+
+.lynx-grid-footer-2 {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  border-top: 1px solid #dfdad2;
+  grid-template-rows: auto;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.lynx-footer-2 {
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
 
+.link-5 {
+  color: #1f2022;
+  font-family: Georgia, Times, Times New Roman, serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  text-decoration: none;
+}
 
+.tab-button {
+    width: 250px;
 
+    background-color: #fff;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  color: #1f2022;;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
+    border-radius: 50px;
+    padding: 22px 36px;
+    font-family: Georgia, serif;
+    letter-spacing: 1.3px;
+    line-height: 140%;
+    text-transform: uppercase;
+}
 
+.tab-button:hover {
+  color: #fff;
+  background-color: #1f2022;
+}
 
+.privacy-image{
+    background-image: url("../images/Work-Visa.jpg");
+    background-repeat: no-repeat;
+  background-size: cover;
+    opacity: 70%;
+}
+
+.quiz-button {
+  background-color: white;
+  border: 2px solid navajowhite;
+  color: #000000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.quiz-button:hover {
+  color: #fff;
+  background-color: #1f2022;
+}
+
+label{
+    font-family: "Georgia", serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.quiz-button:disabled,
+.quiz-button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

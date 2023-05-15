@@ -1,31 +1,45 @@
-<nav class="navbar navbar-inverse w3-white w3-xlarge">
-    <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black " href="/StatisticalData">Statistical Data</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/BackgroundCollection">Background
-                    Collection</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black" href="/Game">Scavenger Hunt Game</a></li>
-                <li><a class="w3-bar-item w3-button w3-text-black active" href="/Guideline">Guideline</a></li>
-            </ul>
-
-        </div>
+<nav class="navbar navbar-inverse w3-white w3-large">
+  <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
     </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
+          <li>
+              <div class="dropdown w3-mobile w3-bar-item">
+                  <button class="dropdown-button">Wage Information <i class="fa fa-caret-down"></i></button>
+                  <div class="dropdown-content">
+                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
+                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
+
+                  </div>
+              </div>
+          </li>
+
+
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp" >Ask For Help</a></li>
+
+          <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
+          <li><a class="w3-bar-item w3-button w3-text-black active" href="/Guideline" >Guideline</a></li>
+
+
+      </ul>
+
+    </div>
+  </div>
 </nav>
 
 <div class="carousel">
 
     <h1 class="w3-center">Working Rights Guideline</h1>
-    <h2 class="w3-center">We<span>&#39;</span>ve pulled together some basics to help you get understood</h2>
+<br>
+    <h2 class="w3-center">We<span>&#39;</span> ve compiled some essential information to help you understand your working rights better.</h2>
     <hr>
     <!-- Page Container -->
     <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
@@ -65,9 +79,8 @@
                                 <h4 class="w3-opacity">Search your keywords</h4>
 
                                 <form action="/Guideline" method="post">
-                                    <input type="text" required name="search_keywords" class="w3-border w3-padding">
-                                    <button type="submit" class="button"><i class="fa fa-search"></i> Search</button>
-                                    <button type="submit" class="button" onclick="window.location.href='/Guideline';">Go Back</button>
+                                    <input id="searchBox" type="text" required name="search_keywords" class="w3-border w3-padding">
+                                    <button type="submit" class="function-button" id="searchButton"><i class="fa fa-search"></i> Search</button>
                                 </form>
                             </div>
                         </div>
@@ -127,19 +140,17 @@
             <!-- End Grid -->
         </div>
 
-    </div>
+</div>
 
     <script>
         function myFunction(id) {
             let x = document.getElementById(id);
-            if (x.className.indexOf("w3-show") == -1) {
+            if (x.className.indexOf("w3-show") === -1) {
                 x.className += " w3-show";
             } else {
                 x.className = x.className.replace(" w3-show", "");
             }
         }
-
-
 
     </script>
 </div>
