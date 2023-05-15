@@ -140,7 +140,7 @@ class MySQLDatabase():
 
     def get_allInfos_WorkingRights(self):
         sql_cmd = """SELECT *
-                FROM WorkingRights
+                FROM WorkingRightsWithID
                 """
 
         self.cursor.execute(sql_cmd)
@@ -154,7 +154,7 @@ class MySQLDatabase():
 
     def get_allInfos_WorkingRights_Type(self):
         sql_cmd = """SELECT DISTINCT type
-                FROM WorkingRights
+                FROM WorkingRightsWithID
                 """
 
         self.cursor.execute(sql_cmd)
@@ -168,7 +168,7 @@ class MySQLDatabase():
 
     def get_allInfos_WorkingRights_Title(self):
         sql_cmd = """SELECT DISTINCT title
-                FROM WorkingRights
+                FROM WorkingRightsWithID
                 """
 
         self.cursor.execute(sql_cmd)
@@ -181,7 +181,7 @@ class MySQLDatabase():
 
     def get_searchGuideline(self, search_keywords):
         sql_cmd = """SELECT *
-                        FROM WorkingRights
+                        FROM WorkingRightsWithID
                         WHERE title LIKE '%{title}%' OR sub_title LIKE '%{sub_title}%' OR text_contents LIKE '%{text_contents}%'
                         """.format(title=search_keywords, sub_title=search_keywords, text_contents=search_keywords)
 
@@ -195,7 +195,7 @@ class MySQLDatabase():
 
     def get_searchGuideline_type(self, search_types):
         sql_cmd = """SELECT *
-                            FROM WorkingRights
+                            FROM WorkingRightsWithID
                             WHERE type LIKE '%{type}%'
                             """.format(type=search_types)
 
