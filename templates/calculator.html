@@ -143,10 +143,15 @@
                         <h4>Average Hourly Wage about your situation is: </h4>
                         <br>
                         {% if result[0] == null %}
-                            <h4 class="w3-center" id="average-wage"><b>0</b></h4>
+                            <h4 class="w3-center" id="average-wage"><b>Lack of data</b></h4>
                         {% else %}
                             <h4 class="w3-center" id="average-wage"><b>{{ result[0][0] }}</b></h4>
+                            <br>
+                            <button class="function-button w3-right" onclick="window.location.href='/SendEmail/Salary_Calculator_Result';" >Send Your Result?</button>
                         {% endif %}
+
+                    <br>
+
                     </div>
                 </div>
 

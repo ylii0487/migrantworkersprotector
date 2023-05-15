@@ -37,24 +37,21 @@
 //
 // Function to show the next question
 
+const email_button = document.getElementById("email-button");
 
 function calculateWage() {
-  let industry = document.querySelector('input[name="industry"]').value;
-  let employmentType = document.querySelector('input[name="employment-type"]').value;
-  let holidayPay = document.querySelector('input[name="holiday-pay"]').value;
+  // let industry = document.querySelector('input[name="industry"]').value;
+  // let employmentType = document.querySelector('input[name="employment-type"]').value;
+  // let holidayPay = document.querySelector('input[name="holiday-pay"]').value;
 
-  if (industry !== "" && employmentType !== null && holidayPay !== null) {
-
-    const averageWageIndustry = document.getElementById("average-wage_industry");
-    const averageWageType = document.getElementById("average-wage_type");
-    const averageWageHoliday = document.getElementById("average-wage_holiday");
-    averageWageIndustry.textContent = "Your Selected Industry is: " + industry;
-    averageWageType.textContent= "Your Selected Employment Type is: " + employmentType
-    averageWageHoliday.textContent="Is This Holiday Pay?: " + holidayPay ;
-
-  }else{
-  alert("Please select answers");
-  }
+  email_button.style.display= "inline-block";
+  // if (industry !== "" && employmentType !== null && holidayPay !== null) {
+  //
+  //   email_button.style.display= "inline-block";
+  //
+  // }else{
+  // alert("Please select answers");
+  // }
 }
 
 // function displaySelectedValues() {
