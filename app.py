@@ -29,8 +29,9 @@ def salary_calculator():
     if request.method == 'GET':
         return model.salary_calculator_page()
     elif request.method == 'POST':
-        search_keywords = request.form['search_keywords']
-        return model.salary_calculator_result_page(search_keywords)
+        industry = request.form['industry']
+        work_type = request.form['work_type']
+        return model.salary_calculator_result_page(industry, work_type)
 
 
 @app.route('/AskForHelp')

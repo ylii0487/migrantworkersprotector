@@ -20,11 +20,18 @@ def data_page():
 
 
 def salary_calculator_page():
-    return page_view("calculator")
+    database.connect()
+    classifications = database.get_allInfos_Calculator_Classification()
+    calculator_types = database.get_allInfos_Calculator_Type()
+    database.close()
+
+    print(classifications)
+    print(calculator_types)
+    return page_view("calculator", classifications=classifications, calculator_types=calculator_types)
 
 
-def salary_calculator_result_page(search_keywords):
-    return page_view("calculator")
+def salary_calculator_result_page(industry, work_type):
+    return page_view("calculator", industry=industry, work_type=work_type)
 
 
 def help_page():

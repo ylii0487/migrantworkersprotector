@@ -71,6 +71,32 @@ class MySQLDatabase():
         self.cursor.close()
         self.conn.close()
 
+    def get_allInfos_Calculator_Classification(self):
+        sql_cmd = """SELECT DISTINCT Classification
+                FROM Hour_pay_rate_FP_C
+                """
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        self.commit()
+        # self.close()
+
+        return result
+
+    def get_allInfos_Calculator_Type(self):
+        sql_cmd = """SELECT DISTINCT type
+                FROM Hour_pay_rate_FP_C
+                """
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        self.commit()
+        # self.close()
+
+        return result
+
     def get_allInfos_AskForHelp_Type(self):
         sql_cmd = """SELECT DISTINCT type
                 FROM AskForHelp

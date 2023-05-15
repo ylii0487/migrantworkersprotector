@@ -47,68 +47,30 @@
                         <h3>Please enter your answer here</h3>
                         <hr>
                         <div class="w3-content">
-                            <div class="mySlides">
-                                <label class="required">Your Industry</label>
-                                <select class="w3-input w3-section w3-border" required name="industry">
-                                    <option>Select your industry...</option>
-                                    <option>Agriculture</option>
-                                    <option>Air, rail and water transport</option>
-                                    <option>Arts and recreational services</option>
-                                    <option>Building, construction and on-site trades</option>
-                                    <option>Business, Finance and Employment Services</option>
-                                    <option>Clerical</option>
-                                    <option>Contract Cleaning</option>
-                                    <option>Education, training and children's services</option>
-                                    <option>Food manufacturing and processing</option>
-                                    <option>Hair and Beauty</option>
-                                    <option>Health Support Services</option>
-                                    <option>Horticulture</option>
-                                    <option>Hospitality</option>
-                                    <option>Manufacturing</option>
-                                    <option>Mining</option>
-                                    <option>Personal and household services</option>
-                                    <option>Power, water and gas</option>
-                                    <option>Print, Media and Telecommunications</option>
-                                    <option>Professional Services</option>
-                                    <option>Real Estate</option>
-                                    <option>Retail</option>
-                                    <option>Retail Trade</option>
-                                    <option>Road Transport</option>
-                                    <option>Security</option>
-                                    <option>Security and public services</option>
-                                    <option>Social, community, disability and home care services</option>
-                                    <option>Storage services and wholesale</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                            <div class="mySlides">
+
+                                <label class="required" >Your Industry</label>
+                            <input class="w3-input w3-section w3-border" type="text" id="industry" list="industryList" required name="industry">
+                                <datalist  id="industryList" >
+                                    {% for classification in classifications %}
+                                    <option value="{{ classification[0] }}"></option>
+                                    {% endfor %}
+                                </datalist>
+
+
                                 <label class="required">What is your type of employment?</label>
-                                <select class="w3-input w3-section w3-border" required name="major">
-                                    <option>Select your type of employment...</option>
+                                <select class="w3-input w3-section w3-border" required name="work_type">
                                     <option>Full time</option>
                                     <option>Part time</option>
                                     <option>Casual</option>
                                 </select>
-                            </div>
-                            <div class="mySlides">
-                                <label class="required">Your Skill Level</label>
-                <select class="w3-input w3-section w3-border" required name="skills">
-                    <option>Select your skill level...</option>
-                    <option>Level 1</option>
-                    <option>Level 2</option>
-                    <option>Level 3</option>
-                    <option>Level 4</option>
-                    <option>Level 5</option>
-                    <option>Not important</option>
-                </select>
-                            </div>
 
-                            <button id="back-button" class="function-button" onclick="plusDivs(-1)">Go Back</button>
-                            <button id="next-button" class="function-button w3-right" type="submit" onclick="plusDivs(+1)">Next</button>
+
+                            <button class="function-button" type="submit">Calculate</button>
+
                         </div>
                     </div>
                     <div class="w3-half">
-                        <h3>Here will show the results.</h3>
+                        <h3>The results will show below: </h3>
                         <hr>
                     </div>
                 </div>
@@ -118,33 +80,3 @@
     </div>
 </div>
 
-<!-- Script for slideshows -->
-<script>
-
-// Slideshows
-let slideIndex = 1;
-
-function plusDivs(n) {
-  slideIndex = slideIndex + n;
-  showDivs(slideIndex);
-}
-
-function showDivs(n) {
-  let x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-
-  if(n < x.length) {
-      for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-      }
-      x[slideIndex - 1].style.display = "block";
-  }else{
-       document.getElementById("next-button").innerHTML = "Submit";
-  }
-
-}
-
-showDivs(1);
-
-</script>
