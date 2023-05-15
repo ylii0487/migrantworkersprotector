@@ -1,9 +1,11 @@
-import view
+import json
+import os
+
+import pandas as pd
+
 import database
 import security
-import os
-import pandas as pd
-import json
+import view
 
 page_view = view.View()
 database = database.MySQLDatabase()
@@ -24,14 +26,43 @@ def salary_calculator_page():
     classifications = database.get_allInfos_Calculator_Classification()
     calculator_types = database.get_allInfos_Calculator_Type()
     database.close()
+    result = 0
+    industry = "Not Selected"
+    employment_type = "Not Selected"
+    holiday_pay = "Not Selected"
+    return page_view("calculator", classifications=classifications, calculator_types=calculator_types,
+                     industry=industry, employment_type=employment_type, holiday_pay=holiday_pay, result=result)
 
-    print(classifications)
-    print(calculator_types)
-    return page_view("calculator", classifications=classifications, calculator_types=calculator_types)
 
+def salary_calculator_result_page(industry, work_type, holiday_pay):
+    database.connect()
+    if industry == "" or work_type is None or holiday_pay is None:
+        database.connect()
+        classifications = database.get_allInfos_Calculator_Classification()
+        calculator_types = database.get_allInfos_Calculator_Type()
+        database.close()
+        result = 0
+        industry = "Not Selected"
+        employment_type = "Not Selected"
+        holiday_pay = "Not Selected"
+        return page_view("calculator", classifications=classifications, calculator_types=calculator_types,
+                         industry=industry, employment_type=employment_type, holiday_pay=holiday_pay, result=result)
 
-def salary_calculator_result_page(industry, work_type):
-    return page_view("calculator", industry=industry, work_type=work_type)
+    else:
+        if holiday_pay == 'Yes':
+
+            result = database.get_allInfos_Calculator_Result_Holiday(industry, work_type)
+            classifications = database.get_allInfos_Calculator_Classification()
+            calculator_types = database.get_allInfos_Calculator_Type()
+        else:
+            result = database.get_allInfos_Calculator_Result(industry, work_type)
+            classifications = database.get_allInfos_Calculator_Classification()
+            calculator_types = database.get_allInfos_Calculator_Type()
+
+        database.close()
+        return page_view("calculator", classifications=classifications, calculator_types=calculator_types,
+                         industry=industry, employment_type=work_type, holiday_pay=holiday_pay,
+                         result=result)
 
 
 def help_page():
@@ -52,7 +83,9 @@ def help_page():
 
 
 def help_page_result(quiz_type, quiz_topic, quiz_fix):
-    if page_security.is_xss(quiz_type) or page_security.is_sql_injection(quiz_type) or page_security.is_xss(quiz_topic) or page_security.is_sql_injection(quiz_topic) or page_security.is_xss(quiz_fix) or page_security.is_sql_injection(quiz_fix):
+    if page_security.is_xss(quiz_type) or page_security.is_sql_injection(quiz_type) or page_security.is_xss(
+            quiz_topic) or page_security.is_sql_injection(quiz_topic) or page_security.is_xss(
+        quiz_fix) or page_security.is_sql_injection(quiz_fix):
         err_str = "String formate is incorrect"
         return page_view("invalid_add", reason=err_str)
     else:

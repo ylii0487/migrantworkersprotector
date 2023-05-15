@@ -1,3 +1,5 @@
+import time
+
 from flask import Flask, request, Response,jsonify
 import model
 
@@ -29,9 +31,21 @@ def salary_calculator():
     if request.method == 'GET':
         return model.salary_calculator_page()
     elif request.method == 'POST':
+
         industry = request.form['industry']
-        work_type = request.form['work_type']
-        return model.salary_calculator_result_page(industry, work_type)
+        employment_type = request.form['employment-type']
+        holiday_pay = request.form['holiday-pay']
+
+        # Call the method in model.py and get the result
+        print(industry)
+        print(employment_type)
+        print(holiday_pay)
+        return model.salary_calculator_result_page(industry, employment_type, holiday_pay)
+        # Return the result as a JSON response
+        # return jsonify({'averageWage': average_wage})
+        # industry = request.form['industry']
+        # work_type = request.form['employment-type']
+        # return model.salary_calculator_result_page(industry, work_type)
 
 
 @app.route('/AskForHelp')

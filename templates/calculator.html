@@ -34,12 +34,15 @@
 
 <div class="carousel">
 
+ <h1 class="w3-center" style="color: #000000">Salary Calculator</h1>
+            <h3 class="w3-center " style="color: #000000">You can check your salary be paid fairly or not.</h3>
+    <hr>
     <div class="w3-display-container w3-content" style="max-width:1500px">
+
+
         <img class="w3-image" src="../static/images/safety_bg.jpg" alt="background" width="5184" height="3456"
              style="opacity: 70%">
-        <div class="w3-display-middle" style="width:65%">
-            <h1 class="w3-center" style="color: #FFFFFF">Salary Calculator</h1>
-            <h3 class="w3-center " style="color: #FFFFFF">You can check your salary be paid fairly or not.</h3>
+        <div class="w3-display-topmiddle" style="width:75%; margin-top: 2%" >
             <!-- Tabs -->
             <div class="w3-container w3-white w3-padding-16">
                 <div class="w3-row-padding" style="margin:0 -16px;">
@@ -48,31 +51,102 @@
                         <hr>
 
                         <div class="w3-content">
-                            <label class="required" >Your Industry</label>
-                            <input class="w3-input w3-section w3-border" type="text" id="industry" list="industryList" required name="industry">
-                                <datalist  id="industryList" >
-                                    {% for classification in classifications %}
-                                    <option value="{{ classification[0] }}"></option>
-                                    {% endfor %}
-                                </datalist>
+                        <form class="w3-container w3-white w3-padding-16" action="/SalaryCalculator" method="post">
+                            <div class="question-container">
+                                <label id="question1-heading" class="required">Your Industry?</label>
+                                <br>
+                                <div class="answer-container">
+                                    <input class="w3-input w3-section w3-border" type="text" list="industry-options"
+                                           required name="industry" placeholder="Please Select Your Industry...">
+                                    <datalist id="industry-options">
+                                        {% for classification in classifications %}
+                                            <option value="{{ classification[0] }}"></option>
+                                        {% endfor %}
+                                    </datalist>
 
 
-                                <label class="required">What is your type of employment?</label>
-                                <select class="w3-input w3-section w3-border" required name="work_type">
-                                    <option>Full time</option>
-                                    <option>Part time</option>
-                                    <option>Casual</option>
-                                </select>
+                                </div>
+                            </div>
 
+                        <br>
+                        <hr>
+                        <div class="question-container">
+                            <label id="question2-heading">Your Employment Type?</label>
+                            <br>
+                            <br>
+                            <div class="answer-container w3-center">
+                                <select class="w3-input w3-section w3-border" required name="employment-type">
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Casual</option>
+                </select>
+{#                                <input type="radio" name="employment-type" id="employment-type1" value="Full-time">#}
+{#                                <label for="employment-type1">Full-time</label>#}
+{#<br>#}
+{#                                <br>#}
+{#                                <input type="radio" name="employment-type" id="employment-type2" value="Part-time">#}
+{#                                <label for="employment-type2">Part-time</label>#}
+{#<br>#}
+{#                                <br>#}
+{#                                <input type="radio" name="employment-type" id="employment-type3" value="Casual">#}
+{#                                <label for="employment-type3">Casual</label>#}
 
-                            <button class="function-button" type="submit" onclick="showResult()">Calculate</button>
+                            </div>
+                        </div>
 
+<br>
+                        <hr>
+
+                        <div class="question-container">
+                            <label id="question3-heading">Want to calculate your holiday pay?</label>
+                            <br>
+                            <br>
+                            <div class="answer-container w3-center">
+                                <select class="w3-input w3-section w3-border" required name="holiday-pay">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+{#                                <input type="radio" name="holiday-pay" id="holiday-pay1" value="yes">#}
+{#                                <label for="holiday-pay1">Yes</label>#}
+{#<br>#}
+{#                                <br>#}
+{#                                <input type="radio" name="holiday-pay" id="holiday-pay2" value="no">#}
+{#                                <label for="holiday-pay2">No</label>#}
+
+                            </div>
+                        </div>
+
+<hr>
+                        <br>
+                            <div id="button-container">
+                                <button class="function-button w3-left" onclick="window.location.href='/SalaryCalculator';">Reset Your Answer</button>
+                                <button class="function-button w3-right"  onclick="calculateWage()">Calculate</button>
+                            </div>
+
+                        </form>
                         </div>
                     </div>
                     <div class="w3-half">
                         <h3>The results will show below: </h3>
                         <hr>
-                        <h4 class="w3-center" id="result-text"></h4>
+
+                    <div id="result-container">
+                      <h4>Your Selected Industry is: <b>{{ industry }}</b></h4>
+                        <br>
+                      <h4>Your Selected Employment Type is: <b>{{ employment_type }}</b></h4>
+                        <br>
+                      <h4>Is This Holiday Pay?: <b>{{ holiday_pay }}</b></h4>
+                        <br>
+                    </div>
+                    <br>
+                    <hr>
+                        <h4>Average Hourly Wage about your situation is: </h4>
+                        <br>
+                        {% if result[0] == null %}
+                            <h4 class="w3-center" id="average-wage"><b>0</b></h4>
+                        {% else %}
+                            <h4 class="w3-center" id="average-wage"><b>{{ result[0][0] }}</b></h4>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -80,4 +154,4 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="/static/js/calculator.js"></script>
