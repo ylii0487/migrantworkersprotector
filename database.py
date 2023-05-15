@@ -73,7 +73,7 @@ class MySQLDatabase():
 
     def get_allInfos_Calculator_Classification(self):
         sql_cmd = """SELECT DISTINCT Classification
-                FROM Hour_pay_rate_FP_C
+                FROM Hour_pay_rate_FP_C_level_out
                 """
 
         self.cursor.execute(sql_cmd)
@@ -86,12 +86,41 @@ class MySQLDatabase():
 
     def get_allInfos_Calculator_Type(self):
         sql_cmd = """SELECT DISTINCT type
-                FROM Hour_pay_rate_FP_C
+                FROM Hour_pay_rate_FP_C_level_out
                 """
 
         self.cursor.execute(sql_cmd)
 
         result = list(self.cursor.fetchall())
+        self.commit()
+        # self.close()
+
+        return result
+
+    def get_allInfos_Calculator_Result(self, industry, work_type):
+        sql_cmd = """SELECT Hourly_pay_rate
+                FROM Hour_pay_rate_FP_C_level_out
+                WHERE Classification LIKE '%{industry}%' and type LIKE '%{work_type}%'
+                            """.format(industry=industry, work_type=work_type)
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+        self.commit()
+        # self.close()
+        print("result")
+        return result
+
+    def get_allInfos_Calculator_Result_Holiday(self, industry, work_type):
+        sql_cmd = """SELECT Public_holiday
+                FROM Holiday_pay_rate_FP_C_level_out
+                WHERE Classification LIKE '%{industry}%' and type LIKE '%{work_type}%'
+                            """.format(industry=industry, work_type=work_type)
+
+        self.cursor.execute(sql_cmd)
+
+        result = list(self.cursor.fetchall())
+
         self.commit()
         # self.close()
 
