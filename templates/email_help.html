@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+          <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/temp.js"></script>
+    <link href="/static/css/home.css" rel="stylesheet" type="text/css" />
+    <title>Ask For Help Result</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Ask For Help - Result</h1>
+        <p>Dear {{ username }},</p>
+        <p>Thank you for using our "Ask For Help" service. We have processed your request and here is the result:</p>
+        <p>Result: </p>
+        {% for description in descriptions %}
+                    <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                        <div class="w3-row-padding">
+                            <div class="w3-col m9">
+                                <h4 style="font-size: 20px">{{ description }}</h4>
+                                <hr class="w3-clear">
+                            </div>
+                            <div class="w3-col m3 w3-center">
+                                <button type="button" class="arrow-button w3-margin-bottom"
+                                        onclick="myFunction('{{ description }}')" ><i class='fa fa-angle-down'
+                                                                               style='font-size:40px;color:black'></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="{{ description }}" class="w3-container w3-hide">
+                            <div class="text" id="convert" >{{ descriptions[description]|safe }}</div>
+
+                                <br>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+        <p>If you have any further questions or need additional assistance, please feel free to reach out to us.</p>
+        <p>Best regards,</p>
+        <p>Your Company</p>
+    </div>
+  </body>
+</html>

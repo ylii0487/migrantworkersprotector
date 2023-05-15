@@ -1,10 +1,19 @@
-import time
-
-from flask import Flask, request, Response,jsonify
+from flask import Flask, request, Response
+from flask_mail import Mail
 import model
 
 app = Flask(__name__, template_folder="templates", static_folder='static')
 
+app.config['SECRET_KEY'] ='top-secret!'
+app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'apikey'
+app.config['MAIL_PASSWORD'] = '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'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_DEFAULT_SENDER'] = 'liyongyi.elle@gmail.com'
+
+
+mail = Mail(app)
 
 @app.before_request
 def before_request():
@@ -36,16 +45,21 @@ def salary_calculator():
         employment_type = request.form['employment-type']
         holiday_pay = request.form['holiday-pay']
 
-        # Call the method in model.py and get the result
-        print(industry)
-        print(employment_type)
-        print(holiday_pay)
         return model.salary_calculator_result_page(industry, employment_type, holiday_pay)
-        # Return the result as a JSON response
-        # return jsonify({'averageWage': average_wage})
-        # industry = request.form['industry']
-        # work_type = request.form['employment-type']
-        # return model.salary_calculator_result_page(industry, work_type)
+
+
+@app.route('/SendEmail/<subject>', methods=['GET'])
+def send_email(subject):
+    return model.send_email_page(subject)
+
+
+@app.route('/SendEmail', methods=['POST'])
+def send_email_post():
+
+    to = request.form['to']
+    new_subject = request.form['subject']
+
+    return model.send_email_page_result(mail, to, new_subject)
 
 
 @app.route('/AskForHelp')
@@ -56,6 +70,7 @@ def help_quiz():
 @app.route('/AskForHelp_Result/<help_type>/<help_topic>/<help_fix>')
 def help_quiz_result(help_type, help_topic, help_fix):
     return model.help_page_result(help_type, help_topic, help_fix)
+
 
 @app.route('/Game')
 def game():
@@ -94,27 +109,6 @@ def privacy():
 @app.route('/Reference')
 def site_map():
     return model.reference_page()
-
-
-#
-# @app.route('/Game_Answers_Factory')
-# def game_factory_answers():
-#     return model.game_answers_factory_page()
-#
-#
-# @app.route('/Game_Answers_Hospital')
-# def game_hospital_answers():
-#     return model.game_answers_hospital_page()
-#
-#
-# @app.route('/Game_Answers_Office')
-# def game_office_answers():
-#     return model.game_answers_office_page()
-#
-#
-# @app.route('/Game_Answers_Truck')
-# def game_truck_answers():
-#     return model.game_answers_truck_page()
 
 
 if __name__ == '__main__':

@@ -1,0 +1,75 @@
+<nav class="navbar navbar-inverse w3-white w3-large">
+    <div class="container-fluid w3-padding-16" style="letter-spacing:2px;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle w3-black" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand w3-bar-item w3-button w3-text-black" href="/home"><i>Migrant Worker Protector</i></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/home">Home</a></li>
+                <li>
+                    <div class="dropdown w3-mobile w3-bar-item">
+                        <button class="dropdown-button active">Wage Information <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile active">Salary
+                                Calculator</a>
+                            <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
+
+                        </div>
+                    </div>
+                </li>
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp">Ask For Help</a></li>
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/Game">Scavenger Hunt Game</a></li>
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline">Guideline</a></li>
+
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="carousel">
+
+    <h1 class="w3-center" style="color: #000000">Let's get in touch. Send me a message: </h1>
+    <hr>
+    <div class="w3-display-container w3-content" style="max-width:1500px">
+
+
+        <img class="w3-image" src="../static/images/safety_bg.jpg" alt="background" width="5184" height="3456"
+             style="opacity: 70%">
+        <div class="w3-display-topmiddle w3-padding-16 w3-card"
+             style="width:75%; margin-top: 2%; background-color: #FFFFFF">
+
+
+            <form action="/SendEmail" class="w3-center" method="post">
+                <div class="w3-center">
+                    <label for="email-input">Email Address:</label>
+                    <input class="w3-padding-16 w3-center" style="width: 30%" type="text"
+                           placeholder="Please Enter Your Email Address" required name="to">
+                    <br>
+
+                    <br>
+                    <br>
+                    <br>
+                    <label for="subject-input">Your Selected Subject:</label>
+                    <input class="w3-padding-16 w3-center" style="width: 50%" type="text" placeholder="{{ subject }}"
+                           required name="subject" value="{{ subject }}">
+                    <br>
+                </div>
+
+                <br>
+                <br>
+                <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+                    <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                </button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@ import json
 import os
 
 import pandas as pd
+from flask_mail import Message
 
 import database
 import security
@@ -11,6 +12,9 @@ page_view = view.View()
 database = database.MySQLDatabase()
 
 page_security = security.Security()
+
+calculator_result = {}
+help_result = {}
 
 
 def home_page():
@@ -60,6 +64,12 @@ def salary_calculator_result_page(industry, work_type, holiday_pay):
             calculator_types = database.get_allInfos_Calculator_Type()
 
         database.close()
+        calculator_result.update({"industry": industry})
+        calculator_result.update({"employment_type": work_type})
+        calculator_result.update({"holiday_pay": holiday_pay})
+        calculator_result.update({"result": result})
+
+        print(calculator_result)
         return page_view("calculator", classifications=classifications, calculator_types=calculator_types,
                          industry=industry, employment_type=work_type, holiday_pay=holiday_pay,
                          result=result)
@@ -95,8 +105,11 @@ def help_page_result(quiz_type, quiz_topic, quiz_fix):
         descriptions = {}
 
         if quiz_fix == 'yes':
-            message = 'Good'
-            descriptions.update({message: 'Good'})
+            message = 'You can have a good chat about your problem with your boss or colleagues who may be able to ' \
+                      'give you some help. '
+            descriptions.update({message: 'If you think your colleagues and supervisors can help you, you can muster '
+                                          'up the courage to establish a consultation with them and have a proper '
+                                          'conversation with them.'})
         else:
             for result in results:
                 if result[0] in descriptions:
@@ -104,10 +117,9 @@ def help_page_result(quiz_type, quiz_topic, quiz_fix):
                 else:
                     descriptions.update({result[0]: result[1]})
 
-        print(descriptions)
-        for description in descriptions:
-            print(description)
+        help_result = descriptions.copy()
 
+        print(help_result)
         return page_view("ask_for_help_result", descriptions=descriptions)
 
 
@@ -230,3 +242,53 @@ def privacy_page():
 
 def reference_page():
     return page_view("reference")
+
+
+def send_email_page(subject):
+    return page_view("email", subject=subject)
+
+
+def send_email_page_result(mail, to, subject):
+    # template= render_template('email.html')
+    # msg = Message(subject, recipients=[to])
+    # msg.html = template
+    # mail.send(msg)
+    # print(to)
+
+    # if subject == 'Salary_Calculator_Result':
+    industry = calculator_result["industry"]
+    employment_type = calculator_result["employment_type"]
+    holiday_pay = calculator_result["holiday_pay"]
+    result = calculator_result["result"]
+
+    msg = Message(subject, recipients=[to])
+    msg.body = 'Congratulations! You have sent a email to your email address'
+    msg.html = ('<h2>Salary Calculator Result</h2>'
+                '<p>Dear ' + to + ':</p>'
+                                  '<p>Here is your salary calculator result:</p>'
+                                  '<p>You Selected Industry: ' + industry + '</p>'
+                                                                            '<p>Your Selected Employment Type is: ' + employment_type + '</p>'
+                                                                                                                                        '<p>Is This Holiday Pay?: ' + holiday_pay + '</p>'
+                                                                                                                                                                                    '<p>Result: ' +
+                result[0][0] + '</p>'
+                               '<p>Thank you for using our salary calculator.</p>')
+    # msg.html = template
+    mail.send(msg)
+    return page_view("email_successful")
+
+
+# else:
+#     # template = render_template('email_help.html', username=to, description=ask_for_help_result)
+#     msg = Message(subject, recipients=[to])
+#     msg.body = 'Congratulations! You have sent a email to your email address'
+#     msg.html = ('<h2>Ask For Help Result </h2>'
+#                 '<p>Dear ' + to + ':</p>'
+#
+#                 '<p>Thank you for using our "Ask For Help" service. We have processed your request and here is the result:</p>'
+#                 '<p>Result: </p>'
+#
+#                 '<p>Thank you for using our help services.</p>')
+#     # msg.html = template
+#     mail.send(msg)
+
+
