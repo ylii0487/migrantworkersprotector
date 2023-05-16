@@ -15,8 +15,9 @@
               <div class="dropdown w3-mobile w3-bar-item">
                   <a class="w3-bar-item dropdown-button w3-mobile active">Wage Information <i class="fa fa-caret-down"></i></a>
                   <div class="dropdown-content">
-                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
                       <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile active">Explore Statistic</a>
+                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
+
 
                   </div>
               </div>
@@ -66,7 +67,7 @@
                 <br>
                 <br>
                 <br>
-                <h3 class="w3-center"><b>You can check if your working hours are on holiday.</b></h3>
+                <h3 class="w3-center"><b>You can check if you are working on public holidays or not.</b></h3>
                 <br>
                 <br>
                 <div class="w3-row">
@@ -81,11 +82,15 @@
                         <br>
                         <br>
                         <br>
-                        <p>In this calendar, you can check if you have been asked to work on holidays because you are
-                            not familiar with public holidays in Victoria. </p>
-                        <br>
-                        <p>You can click on the marked public holiday to see details (and how much you should be paid if
-                            you work on it). </p>
+                        <p>As you are not familiar with Victoria<span>&#39;</span> public holiday, you can check it on this calendar. If you work on public holidays, you should be paid <b>MORE</b></p>
+{#                        <br>#}
+{#                        <p>You can click on the marked public holiday to see details (and how much you should be paid if#}
+{#                            you work on it). </p>#}
+
+                        <hr>
+                        <p>If you want to see your industry holiday hourly salary, you can click this button</p>
+                        <button class="function-button w3-center" onclick="window.location.href='/SalaryCalculator';" style="margin-left: 20%">Salary Calculator</button>
+
                     </div>
                 </div>
 
@@ -102,8 +107,7 @@
                 <br>
                 <br>
                 <br>
-                <h3 class="w3-center"><b>You can check the average weekly ordinary time earnings, full-time adults by
-                    industry, original</b></h3>
+                <h3 class="w3-center"><b>You can check the average weekly income of different industries in Victoria</b></h3>
                 <br>
                 <br>
                 <div class="w3-row-padding w3-margin-top">
@@ -118,12 +122,16 @@
                         <br>
                         <br>
                         <br>
-                        <p>This is a bar chart showing the average weekly income of different industries in
-                            Victoria.</p> <br>
-                        <p>The X-axis shows the average weekly income of different industries, and the Y-axis shows the
-                            average weekly income, each of which is 500 dollars.</p><br>
-                        <p>And you can use the drop-down menu on the left to see the different statistics for men and
+
+                        <p>The X-axis shows the list of industries, and the Y-axis shows the
+                            average weekly salary from <span>&#36;</span>1200 to <span>&#36;</span>2900</p><br>
+                        <p>You can also use the drop-down menu on the left to see different statistics for men and
                             women.</p>
+
+                        <hr>
+                        <p>If you want to check whether you have been underpaid, you can click this button</p>
+                        <button class="function-button w3-center" onclick="window.location.href='/SalaryCalculator';" style="margin-left: 20%">Salary Calculator</button>
+
 
                     </div>
                 </div>
@@ -141,8 +149,7 @@
                 <br>
                 <br>
                 <br>
-                <h3 class="w3-center"><b>You can check the average weekly ordinary time earnings, full-time adults by
-                    state, original</b></h3>
+                <h3 class="w3-center"><b>You can check the average weekly income of different states in Victoria</b></h3>
                 <br>
                 <br>
                 <div class="w3-row-padding w3-margin-top">
@@ -157,12 +164,15 @@
                         <br>
                         <br>
                         <br>
-                        <p>This is a horizontal bar chart showing average weekly income, broken down by state.</p>
-                        <br>
-                        <p>The Y axis is the different states of Australia, and the X axis is the average weekly
-                            income.</p><br>
-                        <p>Again, you can view statistics by gender from the select bar at the top of the
-                            chart. </p>
+                        <p>The X-axis shows the list of states, and the Y-axis shows the
+                            average weekly salary from <span>&#36;</span>1500 to <span>&#36;</span>2100.</p><br>
+                        <p>You can also use the drop-down menu on the left to see different statistics for men and
+                            women.</p>
+
+                        <hr>
+                        <p>If you want to check whether you have been underpaid, you can click this button</p>
+                        <button class="function-button w3-center" onclick="window.location.href='/SalaryCalculator';" style="margin-left: 20%">Salary Calculator</button>
+
                     </div>
 
                     <br>

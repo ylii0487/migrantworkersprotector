@@ -15,9 +15,9 @@
               <div class="dropdown w3-mobile w3-bar-item">
                   <button class="dropdown-button">Wage Information <i class="fa fa-caret-down"></i></button>
                   <div class="dropdown-content">
-
+<a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
                       <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
-                      <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
+
                   </div>
               </div>
           </li>
@@ -46,34 +46,50 @@
             <h2 class="w3-center">Successfully Submitted</h2>
             <h2 class="w3-center">There are some suitable solutions we have found for you so far</h2>
 
-            {% for description in descriptions %}
-                    <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-                        <div class="w3-row-padding">
-                            <div class="w3-col m9">
-                                <h4 style="font-size: 20px">{{ description }}</h4>
-                                <hr class="w3-clear">
-                            </div>
-                            <div class="w3-col m3 w3-center">
-                                <button type="button" class="arrow-button w3-margin-bottom"
-                                        onclick="myFunction('{{ description }}')" ><i class='fa fa-angle-down'
-                                                                               style='font-size:40px;color:black'></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div id="{{ description }}" class="w3-container w3-hide">
-                            <div class="text" id="convert" >{{ descriptions[description]|safe }}</div>
-
-                                <br>
-
+        <hr>
+        {% for description in descriptions %}
+            <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                    <div class="w3-row-padding">
+                        <div class="w3-col m12">
+                            <h2 style="font-size: 20px"><b>{{ description }}</b></h2>
+                            <hr class="w3-clear">
+                            <p>{{ descriptions[description]|safe }}</p>
                         </div>
 
                     </div>
-                {% endfor %}
+
+                </div>
+
+        {% endfor %}
+{#            {% for description in descriptions %}#}
+{#                    <div class="w3-container w3-card w3-white w3-round w3-margin"><br>#}
+{#                        <div class="w3-row-padding">#}
+{#                            <div class="w3-col m9">#}
+{#                                <h4 style="font-size: 20px">{{ description }}</h4>#}
+{#                                <hr class="w3-clear">#}
+{#                            </div>#}
+{#                            <div class="w3-col m3 w3-center">#}
+{#                                <button type="button" class="arrow-button w3-margin-bottom"#}
+{#                                        onclick="myFunction('{{ description }}')" ><i class='fa fa-angle-down'#}
+{#                                                                               style='font-size:40px;color:black'></i>#}
+{#                                </button>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div id="{{ description }}" class="w3-container w3-hide">#}
+{#                            <div class="text" id="convert" >{{ descriptions[description]|safe }}</div>#}
+{##}
+{#                                <br>#}
+{##}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                {% endfor %}#}
 
         <br>
         <hr>
-        <button class="function-button w3-center" onclick="window.location.href='/AskForHelp';" style="margin-left: 43%">Go Back to Ask For Help Page</button>
+            <p>If you want to find more working rights guideline, you can click this button.</p>
+        <button class="function-button w3-center" onclick="window.location.href='/Guideline';" style="margin-left: 43%">Guideline</button>
 
         </div>
     </div>
@@ -118,3 +134,77 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+
+
