@@ -15,9 +15,9 @@
               <div class="dropdown w3-mobile w3-bar-item">
                   <button class="dropdown-button">Wage Information <i class="fa fa-caret-down"></i></button>
                   <div class="dropdown-content">
-
-                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
                       <a href="/StatisticalData" class="w3-bar-item w3-button w3-mobile">Explore Statistic</a>
+                      <a href="/SalaryCalculator" class="w3-bar-item w3-button w3-mobile">Salary Calculator</a>
+
                   </div>
               </div>
           </li>
@@ -41,19 +41,19 @@
     <hr>
 
     <div class="w3-display-container w3-content" style="max-width:1500px;min-width:200px">
-        <img class="w3-image" src="../static/images/labour-law.jpg" alt="info_background" width="5001" height="3335"
-             style="opacity: 55%;">
+        <img class="w3-image" src="../static/images/safety_bg.jpg" alt="background" width="5001" height="3335"
+             style="opacity: 70%;">
         <div class="w3-display-topmiddle w3-padding-16 w3-card" style="width:75%; margin-top: 2%; background-color: #FFFFFF">
 
             <div id="quiz-container">
                 <h4 class="w3-center"><i>To obtain the most appropriate solution for your situation, please complete the
                     following quiz.</i></h4>
                 <hr>
-                <div class="question-container" style="padding-left: 300px">
+                <div class="question-container" style="padding-left: 20%">
                     <h3 id="question1-heading">Question 1: Which category best describes the problem you are facing?</h3>
                     <h4>Please choose from the following options:</h4>
                     <br>
-                    <div class="answer-container" style="padding-left: 200px">
+                    <div class="answer-container" style="padding-left: 20%">
                         {% for help_type in types %}
                             <input type="radio" name="help_type" id="{{ help_type[0] }}{{ loop.index }}" value="{{ help_type[0] }}">
                             <label for="{{ help_type[0] }}{{ loop.index }}">{{ help_type[0] }}</label>
@@ -66,11 +66,11 @@
 
             {% for topic in topics %}
 
-                <div class="question-container" style="display:none; padding-left: 300px">
+                <div class="question-container" style="display:none; padding-left: 20%">
                     <h3 id="question2-heading">Question 2: What specific problem are you experiencing?</h3>
                     <h4>Please choose from the following options:</h4>
                     <br>
-                    <div class="answer-container" style="padding-left: 200px">
+                    <div class="answer-container" style="padding-left: 20%">
                         {% for choice in topics[topic] %}
                             <input type="radio" name="topic" id="{{ choice[0] }}{{ loop.index }}" value="{{ choice[0] }}">
                             <label for="{{ choice[0] }}{{ loop.index }}">{{ choice[0] }}</label>
@@ -82,10 +82,10 @@
 
             {% endfor %}
 
-                <div class="question-container" style="display:none; padding-left: 300px">
+                <div class="question-container" style="display:none; padding-left: 20%">
                     <h3 id="question3-heading">Question 3: Have you tried to resolve the problem with your employer or manager?</h3>
                     <br>
-                    <div class="answer-container" style="padding-left: 200px">
+                    <div class="answer-container" style="padding-left: 20%">
                         <input type="radio" name="fix" id="fix1" value="yes">
                         <label for="fix1">Yes</label>
                         <br>
