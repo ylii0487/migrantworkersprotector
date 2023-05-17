@@ -34,17 +34,17 @@ function scrollPage() {
 }
 
 window.addEventListener('scroll', function() {
-  var scrollButton = document.getElementById('scroll-button');
-  var scrollIcon = document.getElementById('scroll-icon');
-  if (window.scrollY > 0) {
-      scrollButton.style.display = 'block';
-    if ((window.innerHeight + window.scrollY) === document.body.offsetHeight) {
+    const scrollButton = document.getElementById('scroll-button');
+    const scrollIcon = document.getElementById('scroll-icon');
+    if (window.scrollY > 0) {
+
+    if ((window.innerHeight + window.scrollY) <= document.body.offsetHeight) {
         scrollIcon.className='fa fa-angle-up';
     }
 
   } else {
-    scrollButton.style.display = 'block';
     scrollIcon.className = 'fa fa-angle-down';
+
   }
 });
 
