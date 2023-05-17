@@ -202,6 +202,7 @@ p{
   font-size: 13px;
   line-height: 140%;
   text-decoration: none;
+    border-color: black;
   transition: color .2s, background-color .2s;
 }
 
@@ -357,7 +358,6 @@ p{
 
 .tab-button {
     width: 250px;
-
     background-color: #fff;
   border: none;
   border-bottom: 2px solid #ccc;
@@ -371,6 +371,7 @@ p{
     letter-spacing: 1.3px;
     line-height: 140%;
     text-transform: uppercase;
+    margin-top: 1%;
 }
 
 .tab-button:hover {
@@ -379,7 +380,7 @@ p{
 }
 
 .privacy-image{
-    background-image: url("../images/Work-Visa.jpg");
+    background-image: url("../images/safety_bg.jpg");
     background-repeat: no-repeat;
   background-size: cover;
     opacity: 70%;
@@ -422,4 +423,34 @@ label{
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#scroll-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+    color: #8979ec ;
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 22px 36px;
+  font-size: 70px;
+  line-height: 140%;
+  text-decoration: none;
+    border-color: transparent;
+  animation: blink-animation 3s infinite;
+
+  /*display: none; !* Initially hide the button *!*/
 }
