@@ -23,9 +23,10 @@
               </div>
           </li>
 
+          <li><a class="w3-bar-item w3-button w3-text-black active" href="/Game" >Scavenger Hunt Game</a></li>
           <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp" >Ask For Help</a></li>
 
-          <li><a class="w3-bar-item w3-button w3-text-black active" href="/Game" >Scavenger Hunt Game</a></li>
+
           <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
 
 
@@ -38,11 +39,28 @@
 <div class="carousel">
     <h1 class="w3-center">Scavenger Hunt Game Answers</h1>
     <br>
-    <p>If you want to see more details about the safety work, you can go to the <i>Guideline</i> page to find more details</p>
-    <button class="function-button w3-center" onclick="window.location.href='/Guideline';" style="margin-left: 43%">Guideline</button>
+    <hr>
+    <div class="w3-center">
+    <p>If you are experiencing such problems, you may need some help.</p>
+    <button class="function-button w3-center" onclick="window.location.href='/AskForHelp';">Ask For Help</button>
+    </div>
     <br>
     <hr>
-    <div id="Factory">
+<div class="w3-card w3-round w3-white" style=" position: fixed; margin-left: 2%">
+    <div class="w3-container">
+        <h3 class="w3-center">Workplace Category</h3> <hr> <br>
+        <h5><a href="#factory" onclick="w3_close()" class="w3-bar-item w3-button">Factory Workplace</a></h5> <hr>
+        <h5><a href="#farm" onclick="w3_close()" class="w3-bar-item w3-button">Farm Workplace</a></h5> <hr>
+        <h5><a href="#hospital" onclick="w3_close()" class="w3-bar-item w3-button">Hospital Workplace</a></h5> <hr>
+        <h5><a href="#office" onclick="w3_close()" class="w3-bar-item w3-button">Office Workplace</a></h5> <hr>
+        <h5><a href="#truck" onclick="w3_close()" class="w3-bar-item w3-button">Truck Workplace</a></h5> <hr>
+    </div>
+</div>
+
+
+    <div style="margin-left: 18%">
+
+    <div id="factory">
     <h3 style="padding-left: 100px">Factory image shows these safety hazards: </h3>
     <br>
     <img src="../static/images/game_answers/Factory.jpeg" class="w3-image" style="padding-left: 100px">
@@ -120,7 +138,7 @@
     <br>
     <hr>
     <br>
-    <div class="truck">
+    <div id="truck">
     <h3 style="padding-left: 100px">Truck Yard image shows these safety hazards: </h3>
     <br>
 
@@ -133,6 +151,8 @@
         <li>working on a mezzanine floor with no fall protection</li>
     </ul>
     </div>
+    </div>
+
 <button id="scroll-button" onclick="scrollPage()"><i id="scroll-icon" class="fa fa-angle-down"></i></button>
 </div>
 <script type="text/javascript" src="/static/js/temp.js"></script>
