@@ -53,26 +53,31 @@ def salary_calculator_result_page(industry, work_type, holiday_pay):
                          industry=industry, employment_type=employment_type, holiday_pay=holiday_pay, result=result)
 
     else:
-        if holiday_pay == 'Yes':
-
-            result = database.get_allInfos_Calculator_Result_Holiday(industry, work_type)
-            classifications = database.get_allInfos_Calculator_Classification()
-            calculator_types = database.get_allInfos_Calculator_Type()
+        if page_security.is_xss(industry) or page_security.is_sql_injection(industry) or page_security.is_xss(
+                work_type) or page_security.is_sql_injection(work_type) or page_security.is_xss(
+            holiday_pay) or page_security.is_sql_injection(holiday_pay):
+            err_str = "String formate is incorrect"
+            return page_view("invalid_add", reason=err_str)
         else:
-            result = database.get_allInfos_Calculator_Result(industry, work_type)
-            classifications = database.get_allInfos_Calculator_Classification()
-            calculator_types = database.get_allInfos_Calculator_Type()
+            if holiday_pay == 'Yes':
 
-        database.close()
-        calculator_result.update({"industry": industry})
-        calculator_result.update({"employment_type": work_type})
-        calculator_result.update({"holiday_pay": holiday_pay})
-        calculator_result.update({"result": result})
+                result = database.get_allInfos_Calculator_Result_Holiday(industry, work_type)
+                classifications = database.get_allInfos_Calculator_Classification()
+                calculator_types = database.get_allInfos_Calculator_Type()
+            else:
+                result = database.get_allInfos_Calculator_Result(industry, work_type)
+                classifications = database.get_allInfos_Calculator_Classification()
+                calculator_types = database.get_allInfos_Calculator_Type()
 
-        print(calculator_result)
-        return page_view("calculator", classifications=classifications, calculator_types=calculator_types,
-                         industry=industry, employment_type=work_type, holiday_pay=holiday_pay,
-                         result=result)
+            database.close()
+            calculator_result.update({"industry": industry})
+            calculator_result.update({"employment_type": work_type})
+            calculator_result.update({"holiday_pay": holiday_pay})
+            calculator_result.update({"result": result})
+
+            return page_view("calculator", classifications=classifications, calculator_types=calculator_types,
+                             industry=industry, employment_type=work_type, holiday_pay=holiday_pay,
+                             result=result)
 
 
 def help_page():
@@ -212,24 +217,27 @@ def guideline_type_page(search_types):
     search_titles = {}
     subtitles = {}
     # print(search_types)
-    print(search_guidelines)
-    for guideline in search_guidelines:
+    if page_security.is_xss(search_types) or page_security.is_sql_injection(search_types):
+        err_str = "String formate is incorrect"
+        return page_view("invalid_add", reason=err_str)
+    else:
+        for guideline in search_guidelines:
 
-        if guideline[5] in search_titles:
-            if guideline[6] in subtitles:
-                subtitles[guideline[6]] = guideline[7]
+            if guideline[5] in search_titles:
+                if guideline[6] in subtitles:
+                    subtitles[guideline[6]] = guideline[7]
+                else:
+                    subtitles.update({guideline[6]: guideline[7]})
+                search_titles[guideline[5]] = subtitles
             else:
-                subtitles.update({guideline[6]: guideline[7]})
-            search_titles[guideline[5]] = subtitles
-        else:
-            subtitles = {}
-            if guideline[6] in subtitles:
-                subtitles[guideline[6]] = guideline[7]
-            else:
-                subtitles.update({guideline[6]: guideline[7]})
-            search_titles.update({guideline[5]: subtitles})
+                subtitles = {}
+                if guideline[6] in subtitles:
+                    subtitles[guideline[6]] = guideline[7]
+                else:
+                    subtitles.update({guideline[6]: guideline[7]})
+                search_titles.update({guideline[5]: subtitles})
 
-    return page_view("guideline_type", types=search_types, titles=search_titles)
+        return page_view("guideline_type", types=search_types, titles=search_titles)
 
 
 def about_page():
@@ -248,13 +256,13 @@ def send_email_page(subject):
     return page_view("email", subject=subject)
 
 
-def send_email_page_result(mail, to, subject):
-    # template= render_template('email.html')
-    # msg = Message(subject, recipients=[to])
-    # msg.html = template
-    # mail.send(msg)
-    # print(to)
+def invalid_add():
+    err_str = "Invalid input"
 
+    return page_view("invalid_add", reason=err_str)
+
+
+def send_email_page_result(mail, to, subject):
     # if subject == 'Salary_Calculator_Result':
     industry = calculator_result["industry"]
     employment_type = calculator_result["employment_type"]
@@ -276,7 +284,6 @@ def send_email_page_result(mail, to, subject):
     mail.send(msg)
     return page_view("email_successful")
 
-
 # else:
 #     # template = render_template('email_help.html', username=to, description=ask_for_help_result)
 #     msg = Message(subject, recipients=[to])
@@ -290,5 +297,3 @@ def send_email_page_result(mail, to, subject):
 #                 '<p>Thank you for using our help services.</p>')
 #     # msg.html = template
 #     mail.send(msg)
-
-

@@ -22,8 +22,9 @@
                   </div>
               </div>
           </li>
+                <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
                 <li><a class="w3-bar-item w3-button w3-text-black" href="/AskForHelp" >Ask For Help</a></li>
-          <li><a class="w3-bar-item w3-button w3-text-black" href="/Game" >Scavenger Hunt Game</a></li>
+
           <li><a class="w3-bar-item w3-button w3-text-black" href="/Guideline" >Guideline</a></li>
 
 
@@ -134,10 +135,11 @@
                         <h4>Average Hourly Wage about your situation is: </h4>
                         <br>
                         {% if result[0] == null %}
-                            <h4 class="w3-center" id="average-wage"><b>Lack of data</b></h4>
+                            <h4 class="w3-center" id="average-wage"><b>Data is not Available now</b></h4>
                         {% else %}
                             <h4 class="w3-center" id="average-wage"><b>{{ result[0][0] }}</b></h4>
                             <br>
+
                             <button class="function-button w3-right" onclick="window.location.href='/SendEmail/Salary_Calculator_Result';" >Send Your Result?</button>
                         {% endif %}
 
@@ -146,8 +148,25 @@
                     </div>
                 </div>
 
+            <hr>
+            <hr>
+            <div class="w3-center">
+            <p>In addition, you can find out if there are any safety hazards in your workplace</p>
+                    <button class="function-button" onclick="window.location.href='/Game';" >Play Game</button>
+            </div>
+
             </div>
         </div>
+
+{#    <div class="w3-display-bottommiddle" style="width:75%; margin-top: 2%" >#}
+{#            <!-- Tabs -->#}
+{#            <div class="w3-container w3-white w3-padding-16">#}
+{#                <div class="w3-row-padding">#}
+{#                    <p>In addition, you can find out if there are any safety hazards in your workplace </p>#}
+{#                    <button class="function-button" onclick="window.location.href='/Game';" >Play Game</button>#}
+{#                </div>#}
+{#            </div>#}
+{#    </div>#}
     </div>
 <button id="scroll-button" onclick="scrollPage()"><i id="scroll-icon" class="fa fa-angle-down"></i></button>
 </div>
