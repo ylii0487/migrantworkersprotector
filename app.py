@@ -6,15 +6,28 @@ import model
 
 app = Flask(__name__, template_folder="templates", static_folder='static')
 
+# app.config['SECRET_KEY'] ='top-secret!'
+# app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'
+# app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USERNAME'] = 'apikey'
+# app.config['MAIL_PASSWORD'] = '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'
+# app.config['MAIL_USE_TLS'] = True
+# app.config['MAIL_DEFAULT_SENDER'] = 'liyongyi.elle@gmail.com'
 
-
+app.config['SECRET_KEY'] ='top-secret!'
+app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'apikey'
+app.config['MAIL_PASSWORD'] = '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'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_DEFAULT_SENDER'] = 'nyc7011428@gmail.com'
 
 mail = Mail(app)
 
 @app.before_request
 def before_request():
     auth = request.authorization
-    if not auth or not (auth.username == 'FIT5120' and auth.password == 'ICECDG'):
+    if not auth or not (auth.username == 'FIT5120' and auth.password == 'change by yichen'):
         return Response('Could not verify your access level for that URL.\n'
                         'You have to login with proper credentials', 401,
                         {'WWW-Authenticate': 'Basic realm="Login Required"'})

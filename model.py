@@ -269,6 +269,7 @@ def send_email_page_result(mail, to, subject):
     holiday_pay = calculator_result["holiday_pay"]
     result = calculator_result["result"]
 
+    print(industry)
     msg = Message(subject, recipients=[to])
     msg.body = 'Congratulations! You have sent a email to your email address'
     msg.html = ('<h2>Salary Calculator Result</h2>'
