@@ -1,16 +1,12 @@
+import os
+
 from flask import Flask, request, Response
 from flask_mail import Mail
 import model
 
 app = Flask(__name__, template_folder="templates", static_folder='static')
 
-app.config['SECRET_KEY'] ='top-secret!'
-app.config['MAIL_SERVER'] = 'smtp.sendgrid.net'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'apikey'
-app.config['MAIL_PASSWORD'] = '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'
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_DEFAULT_SENDER'] = 'liyongyi.elle@gmail.com'
+
 
 
 mail = Mail(app)
