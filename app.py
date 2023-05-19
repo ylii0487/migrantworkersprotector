@@ -8,13 +8,12 @@ app = Flask(__name__, template_folder="templates", static_folder='static')
 
 
 
-
 mail = Mail(app)
 
 @app.before_request
 def before_request():
     auth = request.authorization
-    if not auth or not (auth.username == 'FIT5120' and auth.password == 'ICECDG'):
+    if not auth or not (auth.username == 'FIT5120' and auth.password == 'change by yichen'):
         return Response('Could not verify your access level for that URL.\n'
                         'You have to login with proper credentials', 401,
                         {'WWW-Authenticate': 'Basic realm="Login Required"'})
